@@ -4,51 +4,51 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-	public GameObject Sword;
-	public bool CanAttack = true;
-	public float AttackCooldown = 1.0f;
-	public AudioClip SwordAttackSound;
+    public int WeaponIndex = 0;
 
-	//Collision detection
-	public bool IsAttacking = false;
-	
-	private const int LEFT_CLICK = 0;
-	private const string ATTACK = "Attack";
-	private const float ONE_SECOND = 1.0f;
-	
-	void Update()
-	{
-		if(Input.GetMouseButtonDown(LEFT_CLICK)){
-			if(CanAttack){
-				SwordAttack();
-			}
-		}
-	}
-	
-	public void SwordAttack(){
-		IsAttacking = true;
-		CanAttack = false;
-		Animator anim = Sword.GetComponent<Animator>();
-		anim.SetTrigger(ATTACK);
-        AudioSource ac = GetComponent<AudioSource>();
-        ac.PlayOneShot(SwordAttackSound);
-        StartCoroutine(ResetAttackCooldown());
-	}
-
-
-	// Co-routine's
-	IEnumerator ResetAttackCooldown()
+    //use this for initialization
+    void Start()
     {
-		StartCoroutine(ResetAttackBool());
-		yield return new WaitForSeconds(AttackCooldown);
-		CanAttack = true;
+        WeaponSelect();
     }
 
-	IEnumerator ResetAttackBool()
+    //update is called once per frame
+    void Update()
     {
-		//set to length of final animation, for now default 1 sec
-		yield return new WaitForSeconds(ONE_SECOND);
-		IsAttacking = false;
+        int i = WeaponIndex;
+
+        //assigning scroll wheel to select different weapons
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        {
+            if (WeaponIndex >= transform.childCount - 1)
+                WeaponIndex = 0;
+            else
+                WeaponIndex++;
+        }
+        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        {
+            if (WeaponIndex <= 0)
+                WeaponIndex = transform.childCount - 1;
+            else
+                WeaponIndex--;
+        }
+
+        if (i != WeaponIndex)
+        {
+            WeaponSelect();
+        }
     }
 
+    void WeaponSelect()
+    {
+        int i = 0;
+        foreach (Transform weapon in transform)
+        {
+            if (i == WeaponIndex)
+                weapon.gameObject.SetActive(true);
+            else
+                weapon.gameObject.SetActive(false);
+            i++;
+        }
+    }
 }
