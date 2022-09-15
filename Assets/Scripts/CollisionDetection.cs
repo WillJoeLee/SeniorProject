@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class CollisionDetection : MonoBehaviour
 {
-    public WeaponController weaponController;
+    public Melee melee;
     public GameObject HitParticle;
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Enemy" && weaponController.IsAttacking)
+        if(other.tag == "Enemy" && melee.IsAttacking)
         {
             float X = other.transform.position.x;
             float Y = other.transform.position.y;
