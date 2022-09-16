@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollisionDetection : MonoBehaviour
+public class MeleeCollisionDetection : MonoBehaviour
 {
-    public Melee melee;
+    public MeleeWeapon Sword;
     public GameObject HitParticle;
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Enemy" && melee.IsAttacking)
+        if(other.tag == "Enemy" && Sword.IsAttacking)
         {
             float X = other.transform.position.x;
             float Y = other.transform.position.y;
