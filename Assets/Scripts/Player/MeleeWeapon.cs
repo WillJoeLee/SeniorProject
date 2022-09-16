@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Melee : MonoBehaviour
+public class MeleeWeapon : MonoBehaviour
 {
 	public GameObject Sword;
 	public bool CanAttack = true;
