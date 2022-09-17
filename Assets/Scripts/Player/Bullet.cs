@@ -13,7 +13,10 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        //Destroy(collision.gameObject);
+        if (collision.gameObject.TryGetComponent<Health>(out Health enemy))
+        {
+            enemy.TakeDamage(35);
+        }
         Destroy(gameObject);
     }
 }
