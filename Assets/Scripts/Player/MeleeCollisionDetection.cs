@@ -4,9 +4,34 @@ using UnityEngine;
 
 public class MeleeCollisionDetection : MonoBehaviour
 {
+    public GameObject self;
     public MeleeWeapon Sword;
-    public GameObject HitParticle;
+    public GameObject HitParticles;
 
+    //start is called before the first frame update
+    void Start()
+    {
+        Physics.IgnoreCollision(self.GetComponent<Collider>(), Sword.GetComponent<Collider>());
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (Sword.IsAttacking && collision.gameObject.TryGetComponent<Health>(out Health enemy))
+        {
+            float x = collision.gameObject.transform.position.x;
+            float y = collision.gameObject.transform.position.y;
+            float z = collision.gameObject.transform.position.z;
+
+            Quaternion rotation = collision.gameObject.transform.rotation;
+
+            //collision.gameObject.GetComponent<Animator>().SetTrigger("Hit");
+            Instantiate(HitParticles, new Vector3(x, y, z), rotation);
+
+            enemy.TakeDamage(35);
+        }
+    }
+
+    /*
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Enemy" && Sword.IsAttacking)
@@ -21,7 +46,8 @@ public class MeleeCollisionDetection : MonoBehaviour
 
             Debug.Log(NAME);
             other.GetComponent<Animator>().SetTrigger("Hit");
-            Instantiate(HitParticle, new Vector3(X,Y,Z), ROTATION);
+            Instantiate(HitParticles, new Vector3(X,Y,Z), ROTATION);
         }
     }
+    */
 }

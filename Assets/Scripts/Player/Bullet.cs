@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float life = 1f;
+    public GameObject HitParticles;
 
     void Awake()
     {
@@ -15,6 +16,15 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<Health>(out Health enemy))
         {
+            float x = collision.gameObject.transform.position.x;
+            float y = collision.gameObject.transform.position.y;
+            float z = collision.gameObject.transform.position.z;
+
+            Quaternion rotation = collision.gameObject.transform.rotation;
+
+            //collision.gameObject.GetComponent<Animator>().SetTrigger("Hit");
+            Instantiate(HitParticles, new Vector3(x, y, z), rotation);
+
             enemy.TakeDamage(35);
         }
         Destroy(gameObject);
