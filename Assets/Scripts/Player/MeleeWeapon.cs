@@ -16,6 +16,7 @@ public class MeleeWeapon : MonoBehaviour
 	//collision detection
 	public bool IsAttacking = false;
 
+	//update is called once per frame
 	void Update()
 	{
 		if (Input.GetMouseButtonDown(LEFT_CLICK))
@@ -52,4 +53,5 @@ public class MeleeWeapon : MonoBehaviour
 		yield return new WaitForSeconds(ONE_SECOND);
 		IsAttacking = false;
 	}
+
 }
