@@ -64,7 +64,7 @@ public class EnemySwordController : MonoBehaviour
             //collision.gameObject.GetComponent<Animator>().SetTrigger("Hit");
             Instantiate(HitParticles, new Vector3(x, y, z), rotation);
 
-            enemy.TakeDamage(35);
+            enemy.TakeDamage(15);
         }
     }
 }
