@@ -5,17 +5,21 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    public float lookRadius = 10f;
-
     Transform target;
     NavMeshAgent agent;
 
+    public float lookRadius = 10f;
+
+    public GameObject Sword;
+
+    //start is called before the first frame update
     void Start()
     {
         target = PlayerManager.instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
     }
 
+    //update is called once per frame
     void Update()
     {
         float distance = Vector3.Distance(target.position, transform.position);
@@ -28,10 +32,17 @@ public class EnemyController : MonoBehaviour
 
             if(distance <= agent.stoppingDistance)
             {
-                //Attack the taget
                 FaceTarget();
-            }
 
+                //attack the target
+                if (Sword.TryGetComponent<EnemySwordController>(out EnemySwordController temp))
+                {
+                    if (temp.CanAttack)
+                    {
+                        temp.SwordAttack();
+                    }
+                }
+            }
         }
     }
 
@@ -39,7 +50,7 @@ public class EnemyController : MonoBehaviour
     {
         Vector3 direction = (target.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        // Smooth out our transition
+        //smooth out our transition
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 
@@ -48,5 +59,4 @@ public class EnemyController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);
     }
-
 }
