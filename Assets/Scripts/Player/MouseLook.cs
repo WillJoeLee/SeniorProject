@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
-    //default mouse sensitivity for now..
-    public float mouseSensitivity = 100f;
     public Transform playerBody;
 
-    float xRotation = 0f;
+    //default mouse sensitivity for now..
+    public float mouseSensitivity = 1000f;
 
     private const string MOUSE_X = "Mouse X";
     private const string MOUSE_Y = "Mouse Y";
+
+    float xRotation = 0f;
 
     //start is called before the first frame update
     void Start()
