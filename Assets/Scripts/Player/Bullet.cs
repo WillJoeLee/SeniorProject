@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.TryGetComponent<Health>(out Health enemy))
+        if (collision.gameObject.TryGetComponent<EnemyHealth>(out EnemyHealth enemy))
         {
             float x = collision.gameObject.transform.position.x;
             float y = collision.gameObject.transform.position.y;
