@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour
 
     public float lookRadius = 10f;
 
-    public GameObject Sword;
+    public GameObject Hands;
 
     //start is called before the first frame update
     void Start()
@@ -29,20 +29,23 @@ public class EnemyController : MonoBehaviour
         if (distance <= lookRadius)
         {
             agent.SetDestination(target.position);
-
-            if(distance <= agent.stoppingDistance)
+            Hands.GetComponent<Animator>().SetTrigger("TargetFound");
+            if (distance <= agent.stoppingDistance)
             {
                 FaceTarget();
-
                 //attack the target
-                if (Sword.TryGetComponent<EnemySwordController>(out EnemySwordController temp))
+                if (Hands.TryGetComponent<EnemyMeleeController>(out EnemyMeleeController temp))
                 {
                     if (temp.CanAttack)
                     {
-                        temp.SwordAttack();
+                        temp.MeleeAttack();
                     }
                 }
             }
+        }
+        else
+        {
+            Hands.GetComponent<Animator>().SetTrigger("TargetLost");
         }
     }
 

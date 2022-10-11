@@ -53,5 +53,4 @@ public class MeleeWeapon : MonoBehaviour
 		yield return new WaitForSeconds(ONE_SECOND);
 		IsAttacking = false;
 	}
-
 }

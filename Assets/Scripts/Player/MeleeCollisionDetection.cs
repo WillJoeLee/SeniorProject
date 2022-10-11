@@ -24,7 +24,7 @@ public class MeleeCollisionDetection : MonoBehaviour
 
             Quaternion rotation = collision.gameObject.transform.rotation;
 
-            //collision.gameObject.GetComponent<Animator>().SetTrigger("Hit");
+            collision.gameObject.GetComponent<Animator>().SetTrigger("isHurt");
             Instantiate(HitParticles, new Vector3(x, y, z), rotation);
 
             enemy.TakeDamage(35);
