@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySwordController : MonoBehaviour
+public class EnemyMeleeController : MonoBehaviour
 {
     //variables for enemy attacks
-    public GameObject Sword;
+    public GameObject Hands;
     public bool CanAttack = true;
     public float AttackCooldown = 1.0f;
     public AudioClip SwordAttackSound;
@@ -25,11 +25,11 @@ public class EnemySwordController : MonoBehaviour
         Physics.IgnoreCollision(self.GetComponent<Collider>(), GetComponent<Collider>());
     }
 
-    public void SwordAttack()
+    public void MeleeAttack()
     {
         IsAttacking = true;
         CanAttack = false;
-        Animator anim = Sword.GetComponent<Animator>();
+        Animator anim = Hands.GetComponent<Animator>();
         anim.SetTrigger(ATTACK);
         //AudioSource ac = GetComponent<AudioSource>();
         //ac.PlayOneShot(SwordAttackSound);
@@ -61,7 +61,7 @@ public class EnemySwordController : MonoBehaviour
 
             Quaternion rotation = collision.gameObject.transform.rotation;
 
-            //collision.gameObject.GetComponent<Animator>().SetTrigger("Hit");
+            //collision.gameObject.GetComponent<Animator>().SetTrigger("IsHurt");
             Instantiate(HitParticles, new Vector3(x, y, z), rotation);
 
             enemy.TakeDamage(15);
