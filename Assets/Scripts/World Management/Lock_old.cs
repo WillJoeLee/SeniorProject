@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Lock : MonoBehaviour
+public class Lock_old : MonoBehaviour
 {
     public GameObject quadrant;
     public GameObject player;
