@@ -15,6 +15,9 @@ public class PickUpKey : MonoBehaviour
     private Vector3 keyPosition;
     private Vector3 lineToKey;
 
+    private bool pickedUp;
+    private float baseHeight;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,15 +28,28 @@ public class PickUpKey : MonoBehaviour
         keyPosition = transform.position;
 
         lineToKey = playerCameraPosition - keyPosition;
+
+        pickedUp = false;
+
+        baseHeight = (float)1;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(pickedUp)
+        {
+          return;
+        }
+
+        //float heightAdjust = Mathf.Sin(Time.fixedTime * (float)2) * (float)0.1;
+
         playerCameraPosition = playerCameraTransform.position;
         playerCameraVector = playerCameraTransform.forward * -1;
 
-        keyPosition = transform.position;
+        //keyPosition = transform.position;
+        //keyPosition.y = baseHeight + heightAdjust;
+        //transform.position = keyPosition;
 
         lineToKey = playerCameraPosition - keyPosition;
 
@@ -46,10 +62,10 @@ public class PickUpKey : MonoBehaviour
 
             if(Input.GetButtonDown("Interact"))
             {
-              Debug.Log("It worked!");
               transform.SetParent(player.transform);
               transform.localEulerAngles = new Vector3(0,180,0);
               transform.localPosition = new Vector3(0,0,(float)(-0.5));
+              pickedUp = true;
             }
           }
           else
@@ -61,5 +77,24 @@ public class PickUpKey : MonoBehaviour
         {
           text.SetActive(false);
         }
+    }
+
+    void FixedUpdate()
+    {
+      if(!pickedUp)
+      {
+        transform.RotateAround(transform.position, Vector3.up, (float)0.4);
+
+        float heightAdjust = Mathf.Sin(Time.fixedTime * (float)2) * (float)0.1;
+        Vector3 keyPosition = transform.position;
+        keyPosition.y = baseHeight + heightAdjust;
+        transform.position = keyPosition;
+
+        Vector3 textPosition = text.transform.position;
+        text.transform.position = new Vector3(textPosition.x,
+                                              baseHeight + (float)0.5,
+                                              textPosition.z);
+      }
+
     }
 }
