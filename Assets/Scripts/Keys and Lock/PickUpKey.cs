@@ -6,6 +6,7 @@ public class PickUpKey : MonoBehaviour
 {
     public GameObject playerCamera;
     public GameObject text;
+    public GameObject player;
 
     private Transform playerCameraTransform;
     private Transform textCanvasTransform;
@@ -42,9 +43,13 @@ public class PickUpKey : MonoBehaviour
           {
             text.SetActive(true);
             text.transform.LookAt(playerCameraTransform);
+
             if(Input.GetButtonDown("Interact"))
             {
               Debug.Log("It worked!");
+              transform.SetParent(player.transform);
+              transform.localEulerAngles = new Vector3(0,180,0);
+              transform.localPosition = new Vector3(0,0,(float)(-0.5));
             }
           }
           else
@@ -56,8 +61,5 @@ public class PickUpKey : MonoBehaviour
         {
           text.SetActive(false);
         }
-
-        //Debug.Log(Vector3.Angle(playerCameraVector, lineToKey));
-
     }
 }

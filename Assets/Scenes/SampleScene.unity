@@ -6083,6 +6083,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 330585543}
   text: {fileID: 1117493940}
+  player: {fileID: 1341022864}
 --- !u!23 &5707541627786163791
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6220,6 +6221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 330585543}
   text: {fileID: 1878328439}
+  player: {fileID: 1341022864}
 --- !u!4 &6282306037635102517
 Transform:
   m_ObjectHideFlags: 0
@@ -6250,6 +6252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 330585543}
   text: {fileID: 121888266}
+  player: {fileID: 1341022864}
 --- !u!1 &6376077228107308870
 GameObject:
   m_ObjectHideFlags: 0
@@ -6364,6 +6367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 330585543}
   text: {fileID: 1536495221}
+  player: {fileID: 1341022864}
 --- !u!4 &8011170718637735901
 Transform:
   m_ObjectHideFlags: 0
