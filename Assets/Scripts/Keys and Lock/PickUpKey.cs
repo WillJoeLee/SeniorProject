@@ -5,7 +5,6 @@ using UnityEngine;
 public class PickUpKey : MonoBehaviour
 {
     public GameObject playerCamera;
-    public GameObject textCanvas;
     public GameObject text;
 
     private Transform playerCameraTransform;
@@ -41,9 +40,8 @@ public class PickUpKey : MonoBehaviour
         {
           if(Vector3.Angle(playerCameraVector, lineToKey) < (float)10)
           {
-            textCanvas.SetActive(true);
+            text.SetActive(true);
             text.transform.LookAt(playerCameraTransform);
-            text.transform.Rotate(new Vector3(0,180,0));
             if(Input.GetButtonDown("Interact"))
             {
               Debug.Log("It worked!");
@@ -51,12 +49,12 @@ public class PickUpKey : MonoBehaviour
           }
           else
           {
-            textCanvas.SetActive(false);
+            text.SetActive(false);
           }
         }
         else
         {
-          textCanvas.SetActive(false);
+          text.SetActive(false);
         }
 
         //Debug.Log(Vector3.Angle(playerCameraVector, lineToKey));
