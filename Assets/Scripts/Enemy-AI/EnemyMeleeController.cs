@@ -5,19 +5,14 @@ using UnityEngine;
 public class EnemyMeleeController : MonoBehaviour
 {
     //variables for enemy attacks
+    public GameObject self;
     public GameObject Hands;
     public bool CanAttack = true;
-    public float AttackCooldown = 1.0f;
-    public AudioClip SwordAttackSound;
-
-    private const string ATTACK = "Attack";
-    private const float ONE_SECOND = 1.0f;
+    public AudioClip MeleeAttackSound;
+    public GameObject HitParticles;
 
     //collision detection
     public bool IsAttacking = false;
-
-    public GameObject self;
-    public GameObject HitParticles;
 
     //start is called before the first frame update
     void Start()
@@ -29,10 +24,8 @@ public class EnemyMeleeController : MonoBehaviour
     {
         IsAttacking = true;
         CanAttack = false;
-        Animator anim = Hands.GetComponent<Animator>();
-        anim.SetTrigger(ATTACK);
-        //AudioSource ac = GetComponent<AudioSource>();
-        //ac.PlayOneShot(SwordAttackSound);
+        Hands.GetComponent<Animator>().SetTrigger("Attack");
+        //GetComponent<AudioSource>().PlayOneShot(MeleeAttackSound);
         StartCoroutine(ResetAttackCooldown());
     }
 
@@ -40,14 +33,14 @@ public class EnemyMeleeController : MonoBehaviour
     IEnumerator ResetAttackCooldown()
     {
         StartCoroutine(ResetAttackBool());
-        yield return new WaitForSeconds(AttackCooldown);
+        yield return new WaitForSeconds(1.0f);
         CanAttack = true;
     }
 
     IEnumerator ResetAttackBool()
     {
         //set to length of final animation, for now default 1 sec
-        yield return new WaitForSeconds(ONE_SECOND);
+        yield return new WaitForSeconds(1.0f);
         IsAttacking = false;
     }
 

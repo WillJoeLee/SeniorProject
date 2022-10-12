@@ -26,11 +26,10 @@ public class EnemyController : MonoBehaviour
 
         System.Console.WriteLine("Distance from player: " + distance);
 
-        if (distance <= lookRadius)
+        if (distance < lookRadius)
         {
             agent.SetDestination(target.position);
-            Hands.GetComponent<Animator>().SetTrigger("TargetFound");
-            if (distance <= agent.stoppingDistance)
+            if (distance < agent.stoppingDistance)
             {
                 FaceTarget();
                 //attack the target
@@ -38,14 +37,19 @@ public class EnemyController : MonoBehaviour
                 {
                     if (temp.CanAttack)
                     {
+                        GetComponent<Animator>().SetTrigger("Attack");
                         temp.MeleeAttack();
                     }
                 }
             }
+            else
+            {
+                GetComponent<Animator>().SetTrigger("TargetFound");
+            }
         }
         else
         {
-            Hands.GetComponent<Animator>().SetTrigger("TargetLost");
+            GetComponent<Animator>().SetTrigger("TargetLost");
         }
     }
 
