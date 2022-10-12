@@ -6,12 +6,7 @@ public class MeleeWeapon : MonoBehaviour
 {
 	public GameObject Sword;
 	public bool CanAttack = true;
-	public float AttackCooldown = 1.0f;
 	public AudioClip SwordAttackSound;
-
-	private const int LEFT_CLICK = 0;
-	private const string ATTACK = "Attack";
-	private const float ONE_SECOND = 1.0f;
 
 	//collision detection
 	public bool IsAttacking = false;
@@ -19,7 +14,7 @@ public class MeleeWeapon : MonoBehaviour
 	//update is called once per frame
 	void Update()
 	{
-		if (Input.GetMouseButtonDown(LEFT_CLICK))
+		if (Input.GetMouseButtonDown(0))
 		{
 			if (CanAttack)
 			{
@@ -32,10 +27,8 @@ public class MeleeWeapon : MonoBehaviour
 	{
 		IsAttacking = true;
 		CanAttack = false;
-		Animator anim = Sword.GetComponent<Animator>();
-		anim.SetTrigger(ATTACK);
-		//AudioSource ac = GetComponent<AudioSource>();
-		//ac.PlayOneShot(SwordAttackSound);
+		Sword.GetComponent<Animator>().SetTrigger("Attack");
+		//GetComponent<AudioSource>().PlayOneShot(SwordAttackSound);
 		StartCoroutine(ResetAttackCooldown());
 	}
 
@@ -43,14 +36,14 @@ public class MeleeWeapon : MonoBehaviour
 	IEnumerator ResetAttackCooldown()
 	{
 		StartCoroutine(ResetAttackBool());
-		yield return new WaitForSeconds(AttackCooldown);
+		yield return new WaitForSeconds(1.0f);
 		CanAttack = true;
 	}
 
 	IEnumerator ResetAttackBool()
 	{
 		//set to length of final animation, for now default 1 sec
-		yield return new WaitForSeconds(ONE_SECOND);
+		yield return new WaitForSeconds(1.0f);
 		IsAttacking = false;
 	}
 }
