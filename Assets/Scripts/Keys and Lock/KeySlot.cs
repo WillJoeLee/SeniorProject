@@ -9,6 +9,8 @@ public class KeySlot : MonoBehaviour
     public GameObject noKeyText;
     public GameObject player;
 
+    private GameObject key;
+
     private Transform playerCameraTransform;
     private Transform textCanvasTransform;
     private Vector3 playerCameraPosition;
@@ -57,7 +59,6 @@ public class KeySlot : MonoBehaviour
           if(Vector3.Angle(playerCameraVector, lineToSlot) < (float)10)
           {
             bool hasKey = false;
-            GameObject key;
 
             foreach(Transform T in player.transform)
             {
@@ -76,7 +77,11 @@ public class KeySlot : MonoBehaviour
 
               if(Input.GetButtonDown("Interact"))
               {
-                Debug.Log("It worked!");
+                key.transform.SetParent(transform);
+                key.transform.localPosition = new Vector3(0,0,0);
+                key.transform.localEulerAngles = new Vector3(0,0,0);
+                hasKeyText.SetActive(false);
+                keyPlaced = true;
               }
             }
             else

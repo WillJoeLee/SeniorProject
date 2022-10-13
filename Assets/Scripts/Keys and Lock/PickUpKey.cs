@@ -66,6 +66,7 @@ public class PickUpKey : MonoBehaviour
               transform.localEulerAngles = new Vector3(0,180,0);
               transform.localPosition = new Vector3(0,0,(float)(-0.5));
               pickedUp = true;
+              text.SetActive(false);
             }
           }
           else
