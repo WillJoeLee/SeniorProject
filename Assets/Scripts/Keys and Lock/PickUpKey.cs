@@ -83,7 +83,7 @@ public class PickUpKey : MonoBehaviour
     {
       if(!pickedUp)
       {
-        transform.RotateAround(transform.position, Vector3.up, (float)0.4);
+        transform.RotateAround(transform.position, Vector3.up, (float)0.8);
 
         float heightAdjust = Mathf.Sin(Time.fixedTime * (float)2) * (float)0.1;
         Vector3 keyPosition = transform.position;
