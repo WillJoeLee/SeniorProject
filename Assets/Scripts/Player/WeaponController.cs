@@ -44,7 +44,9 @@ public class WeaponController : MonoBehaviour
         int i = 0;
         foreach (Transform weapon in transform)
         {
-            if (i == WeaponIndex)
+            if (weapon.TryGetComponent<Animator>(out Animator temp) && temp.GetCurrentAnimatorStateInfo(0).IsName("Sword-Attack"))
+                WeaponIndex = 0;
+            else if (i == WeaponIndex)
                 weapon.gameObject.SetActive(true);
             else
                 weapon.gameObject.SetActive(false);
