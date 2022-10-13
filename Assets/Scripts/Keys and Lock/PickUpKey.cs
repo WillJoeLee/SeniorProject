@@ -7,6 +7,8 @@ public class PickUpKey : MonoBehaviour
     public GameObject playerCamera;
     public GameObject text;
     public GameObject player;
+    public GameObject KeySpawns;
+    public bool DebugMode;
 
     private Transform playerCameraTransform;
     private Transform textCanvasTransform;
@@ -31,7 +33,13 @@ public class PickUpKey : MonoBehaviour
 
         pickedUp = false;
 
-        baseHeight = (float)1;
+        if(!DebugMode)
+        {
+          int random_spawn_index = Random.Range(0,3);
+          transform.position = KeySpawns.transform.GetChild(random_spawn_index).position;
+        }
+
+        baseHeight = transform.position.y;
     }
 
     // Update is called once per frame
@@ -51,6 +59,7 @@ public class PickUpKey : MonoBehaviour
         //keyPosition.y = baseHeight + heightAdjust;
         //transform.position = keyPosition;
 
+        keyPosition = transform.position;
         lineToKey = playerCameraPosition - keyPosition;
 
         if(Vector3.Distance(playerCameraPosition, transform.position) < 3)
@@ -66,6 +75,7 @@ public class PickUpKey : MonoBehaviour
               transform.localEulerAngles = new Vector3(0,180,0);
               transform.localPosition = new Vector3(0,0,(float)(-0.5));
               pickedUp = true;
+              text.SetActive(false);
             }
           }
           else
@@ -83,7 +93,7 @@ public class PickUpKey : MonoBehaviour
     {
       if(!pickedUp)
       {
-        transform.RotateAround(transform.position, Vector3.up, (float)0.4);
+        transform.RotateAround(transform.position, Vector3.up, (float)0.8);
 
         float heightAdjust = Mathf.Sin(Time.fixedTime * (float)2) * (float)0.1;
         Vector3 keyPosition = transform.position;
