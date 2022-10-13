@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour
     NavMeshAgent agent;
 
     public float lookRadius = 10f;
+    public float attackRadius = 3f;
 
     public GameObject Hands;
 
@@ -24,12 +25,12 @@ public class EnemyController : MonoBehaviour
     {
         float distance = Vector3.Distance(target.position, transform.position);
 
-        System.Console.WriteLine("Distance from player: " + distance);
+        //System.Console.WriteLine("Distance from player: " + distance);
 
         if (distance < lookRadius)
         {
             agent.SetDestination(target.position);
-            if (distance < agent.stoppingDistance)
+            if (distance < attackRadius)
             {
                 FaceTarget();
                 //attack the target
