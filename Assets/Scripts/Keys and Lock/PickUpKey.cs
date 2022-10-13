@@ -33,13 +33,13 @@ public class PickUpKey : MonoBehaviour
 
         pickedUp = false;
 
-        baseHeight = (float)1;
-
         if(!DebugMode)
         {
           int random_spawn_index = Random.Range(0,3);
           transform.position = KeySpawns.transform.GetChild(random_spawn_index).position;
         }
+
+        baseHeight = transform.position.y;
     }
 
     // Update is called once per frame
