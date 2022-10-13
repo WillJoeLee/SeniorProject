@@ -14,6 +14,8 @@ public class KeySlot : MonoBehaviour
     public MeshRenderer lockMeshRenderer;
     public int lockMaterialIndex;
 
+    public GameObject Quadrants;
+
     private Material lockTrim;
 
     private GameObject key;
@@ -90,6 +92,32 @@ public class KeySlot : MonoBehaviour
                 hasKeyText.SetActive(false);
                 lockTrim = lockMeshRenderer.materials[lockMaterialIndex];
                 lockTrim.CopyPropertiesFromMaterial(activatedTrim);
+
+                bool allKeysPlaced = true;
+                foreach(Transform T in Quadrants.transform)
+                {
+                  if(T.gameObject.activeInHierarchy)
+                  {
+                    allKeysPlaced = false;
+                  }
+                }
+
+                if(allKeysPlaced)
+                {
+                  Debug.Log("Angels win!");
+                  return;
+                }
+
+                while(!allKeysPlaced)
+                {
+                    int random_quadrant_index = Random.Range(0,4);
+                    if(Quadrants.transform.GetChild(random_quadrant_index).gameObject.activeInHierarchy)
+                    {
+                      Quadrants.transform.GetChild(random_quadrant_index).gameObject.SetActive(false);
+                      break;
+                    }
+                }
+
                 keyPlaced = true;
               }
             }

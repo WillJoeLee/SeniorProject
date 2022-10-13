@@ -2459,6 +2459,7 @@ MonoBehaviour:
   activatedTrim: {fileID: 2100000, guid: e1bc6275a5e05a845afbbb23eca7bb44, type: 2}
   lockMeshRenderer: {fileID: 288091302701321299}
   lockMaterialIndex: 1
+  Quadrants: {fileID: 2079973862}
 --- !u!1 &724001810
 GameObject:
   m_ObjectHideFlags: 0
@@ -2720,6 +2721,7 @@ MonoBehaviour:
   activatedTrim: {fileID: 2100000, guid: e1bc6275a5e05a845afbbb23eca7bb44, type: 2}
   lockMeshRenderer: {fileID: 288091302701321299}
   lockMaterialIndex: 2
+  Quadrants: {fileID: 2079973862}
 --- !u!1 &821171490
 GameObject:
   m_ObjectHideFlags: 0
@@ -3269,6 +3271,7 @@ MonoBehaviour:
   activatedTrim: {fileID: 2100000, guid: e1bc6275a5e05a845afbbb23eca7bb44, type: 2}
   lockMeshRenderer: {fileID: 288091302701321299}
   lockMaterialIndex: 3
+  Quadrants: {fileID: 2079973862}
 --- !u!64 &1047197102
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4696,6 +4699,7 @@ MonoBehaviour:
   activatedTrim: {fileID: 2100000, guid: e1bc6275a5e05a845afbbb23eca7bb44, type: 2}
   lockMeshRenderer: {fileID: 288091302701321299}
   lockMaterialIndex: 4
+  Quadrants: {fileID: 2079973862}
 --- !u!1 &1573056047
 GameObject:
   m_ObjectHideFlags: 0
