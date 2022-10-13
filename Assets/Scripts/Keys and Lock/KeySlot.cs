@@ -9,6 +9,13 @@ public class KeySlot : MonoBehaviour
     public GameObject noKeyText;
     public GameObject player;
 
+    public Material activatedTrim;
+
+    public MeshRenderer lockMeshRenderer;
+    public int lockMaterialIndex;
+
+    private Material lockTrim;
+
     private GameObject key;
 
     private Transform playerCameraTransform;
@@ -81,6 +88,8 @@ public class KeySlot : MonoBehaviour
                 key.transform.localPosition = new Vector3(0,0,0);
                 key.transform.localEulerAngles = new Vector3(0,0,0);
                 hasKeyText.SetActive(false);
+                lockTrim = lockMeshRenderer.materials[lockMaterialIndex];
+                lockTrim.CopyPropertiesFromMaterial(activatedTrim);
                 keyPlaced = true;
               }
             }
