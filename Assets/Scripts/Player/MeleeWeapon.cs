@@ -31,6 +31,8 @@ public class MeleeWeapon : MonoBehaviour
 	{
 		IsAttacking = true;
 		CanAttack = false;
+		playerInputActionAsset.actionMaps[0].actions[6].Disable();
+		playerInputActionAsset.actionMaps[0].actions[4].Disable();
 		Sword.GetComponent<Animator>().SetTrigger("Attack");
 		//GetComponent<AudioSource>().PlayOneShot(SwordAttackSound);
 		StartCoroutine(ResetAttackCooldown());
@@ -42,6 +44,8 @@ public class MeleeWeapon : MonoBehaviour
 		StartCoroutine(ResetAttackBool());
 		yield return new WaitForSeconds(1.0f);
 		CanAttack = true;
+		playerInputActionAsset.actionMaps[0].actions[6].Enable();
+		playerInputActionAsset.actionMaps[0].actions[4].Enable();
 	}
 
 	IEnumerator ResetAttackBool()
