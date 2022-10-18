@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MouseLook : MonoBehaviour
 {
@@ -11,14 +12,20 @@ public class MouseLook : MonoBehaviour
 
     private const string MOUSE_X = "Mouse X";
     private const string MOUSE_Y = "Mouse Y";
+    private const int IN_MAIN_MENU = 0;
 
     float xRotation = 0f;
 
     //start is called before the first frame update
     void Start()
     {
-        //locks the cursor on the screen
-        Cursor.lockState = CursorLockMode.Locked;
+        //Checks to see if the player is out of the main menu
+        if (SceneManager.GetActiveScene().buildIndex != IN_MAIN_MENU)
+        {
+            //locks the cursor on the screen
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        
     }
 
     //update is called once per frame
