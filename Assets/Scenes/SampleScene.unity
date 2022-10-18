@@ -7856,6 +7856,11 @@ PrefabInstance:
       objectReference: {fileID: 1341022864}
     - target: {fileID: 1722047548391496089, guid: a0044c510a8f07e418da8020531a6144,
         type: 3}
+      propertyPath: fireDelay
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1722047548391496089, guid: a0044c510a8f07e418da8020531a6144,
+        type: 3}
       propertyPath: bulletModel
       value: 
       objectReference: {fileID: 5119952071138824918, guid: 15bb65f525dfc97479b8f0d0200fd67f,
@@ -7881,6 +7886,12 @@ PrefabInstance:
       propertyPath: bulletSpawnPoint
       value: 
       objectReference: {fileID: 932154445}
+    - target: {fileID: 1722047548391496089, guid: a0044c510a8f07e418da8020531a6144,
+        type: 3}
+      propertyPath: playerInputActionAsset
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: f218140b930b31d42af59706b7299e24,
+        type: 3}
     - target: {fileID: 1955856152947860683, guid: a0044c510a8f07e418da8020531a6144,
         type: 3}
       propertyPath: m_Name

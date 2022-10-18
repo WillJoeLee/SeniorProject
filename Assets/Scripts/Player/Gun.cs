@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Gun : MonoBehaviour
 {
@@ -12,11 +13,16 @@ public class Gun : MonoBehaviour
 
     private const int LEFT_CLICK = 0;
 
+    public InputActionAsset playerInputActionAsset;
+    public float fireDelay;
+    private float lastFired = 0;
+
     //update is called once per frame
     void Update()
-    {
-        if (Input.GetMouseButtonDown(LEFT_CLICK))
+    {   bool attackBool = playerInputActionAsset.actionMaps[0].actions[3].ReadValue<float>() == (float)1;
+		    if (attackBool && (Time.realtimeSinceStartup - lastFired) > fireDelay)
         {
+            lastFired = Time.realtimeSinceStartup;
             var bullet = Instantiate(bulletModel, bulletSpawn.position, bulletSpawn.rotation);
             Physics.IgnoreCollision(self.GetComponent<Collider>(), bullet.GetComponent<Collider>());
             bullet.GetComponent<Rigidbody>().velocity = bulletSpawn.forward * bulletSpeed;
