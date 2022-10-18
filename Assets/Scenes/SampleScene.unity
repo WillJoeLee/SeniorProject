@@ -1249,7 +1249,7 @@ MonoBehaviour:
     type: 3}
   mouseSensitivity: 30
   controllerSensitivity: 300
-  ySensitivityReductionFactor: 0.5
+  ySensitivityControllerReduction: 0.5
 --- !u!64 &353778013
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8441,6 +8441,8 @@ MonoBehaviour:
   CanAttack: 1
   SwordAttackSound: {fileID: 0}
   IsAttacking: 0
+  playerInputActionAsset: {fileID: -944628639613478452, guid: f218140b930b31d42af59706b7299e24,
+    type: 3}
 --- !u!65 &8816919889835528873
 BoxCollider:
   m_ObjectHideFlags: 0
