@@ -41,6 +41,18 @@ public class WeaponController : MonoBehaviour
         {
             WeaponSelect();
         }
+
+        bool switchToWeapon1 = playerInputActionAsset.actionMaps[0].actions[5].ReadValue<float>() == 1;
+        bool switchToWeapon2 = playerInputActionAsset.actionMaps[0].actions[6].ReadValue<float>() == 1;
+
+        if(switchToWeapon1)
+        {
+          SwitchToWeapon1();
+        }
+        else if(switchToWeapon2)
+        {
+          SwitchToWeapon2();
+        }
     }
 
     void WeaponSelect()
@@ -56,5 +68,17 @@ public class WeaponController : MonoBehaviour
                 weapon.gameObject.SetActive(false);
             i++;
         }
+    }
+
+    void SwitchToWeapon1()
+    {
+      transform.GetChild(1).gameObject.SetActive(false);
+      transform.GetChild(0).gameObject.SetActive(true);
+    }
+
+    void SwitchToWeapon2()
+    {
+      transform.GetChild(0).gameObject.SetActive(false);
+      transform.GetChild(1).gameObject.SetActive(true);
     }
 }
