@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
     public float jumpHeight = 3f;
 
+    public InputActionAsset playerInputActionAsset;
+
     //update is called once per frame
     void Update()
     {
@@ -32,8 +35,10 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = -1f;
         }
 
-        float x = Input.GetAxis(HORIZONTAL);
-        float z = Input.GetAxis(VERTICAL);
+        float x = playerInputActionAsset.actionMaps[0].actions[0].ReadValue<Vector2>().x;
+        float z = playerInputActionAsset.actionMaps[0].actions[0].ReadValue<Vector2>().y;
+
+        //Debug.Log(playerInputActionAsset.actionMaps[0].actions[0].ReadValue<Vector2>());
 
         Vector3 move = transform.right * x + transform.forward * z;
 
