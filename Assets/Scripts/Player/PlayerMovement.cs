@@ -45,8 +45,9 @@ public class PlayerMovement : MonoBehaviour
         //allow the movement to be frame rate independent by multiplying by Time.deltaTime
         controller.Move(move * speed * Time.deltaTime);
 
+        bool jumpBool = playerInputActionAsset.actionMaps[0].actions[1].ReadValue<float>() == (float)1;
         //jumping and falling mechanics added here
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (jumpBool && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
