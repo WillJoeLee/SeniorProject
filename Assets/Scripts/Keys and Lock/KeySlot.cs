@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class KeySlot : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class KeySlot : MonoBehaviour
     public int lockMaterialIndex;
 
     public GameObject Quadrants;
+
+    public InputActionAsset playerInputActionAsset;
 
     private Material lockTrim;
 
@@ -84,7 +87,8 @@ public class KeySlot : MonoBehaviour
               hasKeyText.SetActive(true);
               hasKeyText.transform.LookAt(playerCameraTransform);
 
-              if(Input.GetButtonDown("Interact"))
+              bool interact = playerInputActionAsset.actionMaps[0].actions[7].ReadValue<float>() == 1;
+              if(interact)
               {
                 key.transform.SetParent(transform);
                 key.transform.localPosition = new Vector3(0,0,0);

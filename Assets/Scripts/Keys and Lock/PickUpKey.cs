@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PickUpKey : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class PickUpKey : MonoBehaviour
     public GameObject player;
     public GameObject KeySpawns;
     public bool DebugMode;
+    public InputActionAsset playerInputActionAsset;
 
     private Transform playerCameraTransform;
     private Transform textCanvasTransform;
@@ -69,7 +71,8 @@ public class PickUpKey : MonoBehaviour
             text.SetActive(true);
             text.transform.LookAt(playerCameraTransform);
 
-            if(Input.GetButtonDown("Interact"))
+            bool interact = playerInputActionAsset.actionMaps[0].actions[7].ReadValue<float>() == 1;
+            if(interact)
             {
               transform.SetParent(player.transform);
               transform.localEulerAngles = new Vector3(0,180,0);
