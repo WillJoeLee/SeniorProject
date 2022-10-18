@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MeleeWeapon : MonoBehaviour
 {
@@ -11,10 +12,13 @@ public class MeleeWeapon : MonoBehaviour
 	//collision detection
 	public bool IsAttacking = false;
 
+	public InputActionAsset playerInputActionAsset;
+
 	//update is called once per frame
 	void Update()
 	{
-		if (Input.GetMouseButtonDown(0))
+		bool attackBool = playerInputActionAsset.actionMaps[0].actions[3].ReadValue<float>() == (float)1;
+		if (attackBool)
 		{
 			if (CanAttack)
 			{

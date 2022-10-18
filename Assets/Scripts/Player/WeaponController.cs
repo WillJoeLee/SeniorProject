@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class WeaponController : MonoBehaviour
 {
     public int WeaponIndex = 0;
+    public InputActionAsset playerInputActionAsset;
 
     //use this for initialization
     void Start()
@@ -17,15 +19,17 @@ public class WeaponController : MonoBehaviour
     {
         int i = WeaponIndex;
 
+        float mouseScroll = playerInputActionAsset.actionMaps[0].actions[4].ReadValue<float>();
+
         //assigning scroll wheel to select different weapons
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        if (mouseScroll > 0f)
         {
             if (WeaponIndex >= transform.childCount - 1)
                 WeaponIndex = 0;
             else
                 WeaponIndex++;
         }
-        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        if (mouseScroll < 0f)
         {
             if (WeaponIndex <= 0)
                 WeaponIndex = transform.childCount - 1;
@@ -36,6 +40,18 @@ public class WeaponController : MonoBehaviour
         if (i != WeaponIndex)
         {
             WeaponSelect();
+        }
+
+        bool switchToWeapon1 = playerInputActionAsset.actionMaps[0].actions[5].ReadValue<float>() == 1;
+        bool switchToWeapon2 = playerInputActionAsset.actionMaps[0].actions[6].ReadValue<float>() == 1;
+
+        if(switchToWeapon1)
+        {
+          SwitchToWeapon1();
+        }
+        else if(switchToWeapon2)
+        {
+          SwitchToWeapon2();
         }
     }
 
@@ -52,5 +68,17 @@ public class WeaponController : MonoBehaviour
                 weapon.gameObject.SetActive(false);
             i++;
         }
+    }
+
+    void SwitchToWeapon1()
+    {
+      transform.GetChild(1).gameObject.SetActive(false);
+      transform.GetChild(0).gameObject.SetActive(true);
+    }
+
+    void SwitchToWeapon2()
+    {
+      transform.GetChild(0).gameObject.SetActive(false);
+      transform.GetChild(1).gameObject.SetActive(true);
     }
 }
