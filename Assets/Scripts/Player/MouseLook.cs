@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class MouseLook : MonoBehaviour
 {
     public Transform playerBody;
+    public InputActionAsset playerInputActionAsset;
 
     //default mouse sensitivity for now..
-    public float mouseSensitivity = 1000f;
+    public float mouseSensitivity = 50f;
+    public float controllerSensitivity = 300f;
+    public float ySensitivityControllerReduction = 0.5f;
 
     private const string MOUSE_X = "Mouse X";
     private const string MOUSE_Y = "Mouse Y";
@@ -25,15 +29,34 @@ public class MouseLook : MonoBehaviour
             //locks the cursor on the screen
             Cursor.lockState = CursorLockMode.Locked;
         }
-        
+
     }
 
     //update is called once per frame
     void Update()
     {
+        bool isController = false;
+        try
+        {
+          Debug.Log(playerInputActionAsset.actionMaps[0].actions[2].activeControl.displayName);
+          isController = playerInputActionAsset.actionMaps[0].actions[2].activeControl.displayName == "Right Stick";
+        }
+        catch(System.NullReferenceException){}
+
+        float inputLookX = playerInputActionAsset.actionMaps[0].actions[2].ReadValue<Vector2>().x;
+        float inputLookY = playerInputActionAsset.actionMaps[0].actions[2].ReadValue<Vector2>().y;
+
+        float sensitivity = mouseSensitivity;
+        float yFactor = 1f;
+        if(isController)
+        {
+          sensitivity = controllerSensitivity;
+          yFactor = ySensitivityControllerReduction;
+        }
+
         //multiplying by deltaTime to ensure that we are moving independent to our frame rate
-        float mouseX = Input.GetAxis(MOUSE_X) * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis(MOUSE_Y) * mouseSensitivity * Time.deltaTime;
+        float mouseX = inputLookX * sensitivity * Time.deltaTime;
+        float mouseY = inputLookY * sensitivity * yFactor * Time.deltaTime;
 
         //using += results in flipped rotations
         xRotation -= mouseY;
