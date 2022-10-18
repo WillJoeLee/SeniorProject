@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class WeaponController : MonoBehaviour
 {
     public int WeaponIndex = 0;
+    public InputActionAsset playerInputActionAsset;
 
     //use this for initialization
     void Start()
@@ -17,15 +19,17 @@ public class WeaponController : MonoBehaviour
     {
         int i = WeaponIndex;
 
+        float mouseScroll = playerInputActionAsset.actionMaps[0].actions[4].ReadValue<float>();
+
         //assigning scroll wheel to select different weapons
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        if (mouseScroll > 0f)
         {
             if (WeaponIndex >= transform.childCount - 1)
                 WeaponIndex = 0;
             else
                 WeaponIndex++;
         }
-        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        if (mouseScroll < 0f)
         {
             if (WeaponIndex <= 0)
                 WeaponIndex = transform.childCount - 1;

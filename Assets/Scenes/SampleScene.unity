@@ -6180,6 +6180,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponIndex: 0
+  playerInputActionAsset: {fileID: -944628639613478452, guid: f218140b930b31d42af59706b7299e24,
+    type: 3}
 --- !u!1 &1775220627
 GameObject:
   m_ObjectHideFlags: 0
