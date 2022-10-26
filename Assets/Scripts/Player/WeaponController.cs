@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class WeaponController : MonoBehaviour
 {
     public int WeaponIndex = 0;
+    public Transform MeleeWeapon;
     public InputActionAsset playerInputActionAsset;
 
     //use this for initialization
@@ -68,17 +69,26 @@ public class WeaponController : MonoBehaviour
                 weapon.gameObject.SetActive(false);
             i++;
         }
+        //attempts to puts sword into place
+        if (WeaponIndex == 0)
+        {
+            MeleeWeapon.position = new Vector3(-8.15f, 0f, 3.15f);
+            MeleeWeapon.eulerAngles = new Vector3(35f, 145f, 110f);
+        }
     }
 
     void SwitchToWeapon1()
     {
-      transform.GetChild(1).gameObject.SetActive(false);
-      transform.GetChild(0).gameObject.SetActive(true);
+        transform.GetChild(1).gameObject.SetActive(false);
+        transform.GetChild(0).gameObject.SetActive(true);
+        //attempts to puts sword into place
+        MeleeWeapon.position = new Vector3(-8.15f, 0f, 3.15f);
+        MeleeWeapon.eulerAngles = new Vector3(35f, 145f, 110f);
     }
 
     void SwitchToWeapon2()
     {
-      transform.GetChild(0).gameObject.SetActive(false);
-      transform.GetChild(1).gameObject.SetActive(true);
+        transform.GetChild(0).gameObject.SetActive(false);
+        transform.GetChild(1).gameObject.SetActive(true);
     }
 }
