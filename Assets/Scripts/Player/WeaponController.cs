@@ -7,11 +7,13 @@ public class WeaponController : MonoBehaviour
 {
     public int WeaponIndex = 0;
     public Transform MeleeWeapon;
-    public InputActionAsset playerInputActionAsset;
+    public PlayerInput playerInput;
+    private InputActionAsset playerInputActionAsset;
 
     //use this for initialization
     void Start()
     {
+        playerInputActionAsset = playerInput.actions;
         WeaponSelect();
     }
 

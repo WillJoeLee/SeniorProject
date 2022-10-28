@@ -22,7 +22,13 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
     public float jumpHeight = 3f;
 
-    public InputActionAsset playerInputActionAsset;
+    public PlayerInput playerInput;
+    private InputActionAsset playerInputActionAsset;
+
+    void Start()
+    {
+      playerInputActionAsset = playerInput.actions;
+    }
 
     //update is called once per frame
     void Update()

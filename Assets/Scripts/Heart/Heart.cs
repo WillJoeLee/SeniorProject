@@ -5,12 +5,12 @@ using UnityEngine.InputSystem;
 
 public class Heart : MonoBehaviour
 {
-    public GameObject playerCamera;
+    private GameObject playerCamera;
     public GameObject text;
-    public GameObject player;
+    private GameObject player;
     public GameObject heartSpawns;
     public bool DebugMode;
-    public InputActionAsset playerInputActionAsset;
+    private InputActionAsset playerInputActionAsset;
 
     private Transform playerCameraTransform;
     private Transform textCanvasTransform;
@@ -25,6 +25,9 @@ public class Heart : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindWithTag("Player");
+        playerInputActionAsset = player.GetComponent<PlayerInput>().actions;
+        playerCamera = GameObject.FindWithTag("MainCamera");
         playerCameraTransform = playerCamera.transform;
         playerCameraPosition = playerCameraTransform.position;
         playerCameraVector = playerCameraTransform.forward * -1;
@@ -50,12 +53,25 @@ public class Heart : MonoBehaviour
         if(pickedUp)
         {
           if (player.TryGetComponent<Health>(out Health revive)) {
-            revive.Respawn2(); 
+            revive.Respawn2();
           }
           return;
         }
 
         //float heightAdjust = Mathf.Sin(Time.fixedTime * (float)2) * (float)0.1;
+
+        Transform nearestPlayerCameraTransform = GameObject.FindWithTag("MainCamera").transform;
+        foreach(GameObject playerCamera in GameObject.FindGameObjectsWithTag("MainCamera"))
+        {
+          if(Vector3.Distance(transform.position, playerCamera.transform.position)
+          < Vector3.Distance(transform.position, nearestPlayerCameraTransform.position))
+          {
+            nearestPlayerCameraTransform = playerCamera.transform;
+          }
+        }
+        playerCameraTransform = nearestPlayerCameraTransform;
+        player = playerCameraTransform.parent.gameObject;
+        playerInputActionAsset = player.GetComponent<PlayerInput>().actions;
 
         playerCameraPosition = playerCameraTransform.position;
         playerCameraVector = playerCameraTransform.forward * -1;

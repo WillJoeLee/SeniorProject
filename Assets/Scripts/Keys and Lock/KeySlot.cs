@@ -5,10 +5,10 @@ using UnityEngine.InputSystem;
 
 public class KeySlot : MonoBehaviour
 {
-    public GameObject playerCamera;
+    private GameObject playerCamera;
     public GameObject hasKeyText;
     public GameObject noKeyText;
-    public GameObject player;
+    private GameObject player;
 
     public Material activatedTrim;
 
@@ -17,7 +17,7 @@ public class KeySlot : MonoBehaviour
 
     public GameObject Quadrants;
 
-    public InputActionAsset playerInputActionAsset;
+    private InputActionAsset playerInputActionAsset;
 
     private Material lockTrim;
 
@@ -35,6 +35,7 @@ public class KeySlot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerCamera = GameObject.FindWithTag("MainCamera");
         playerCameraTransform = playerCamera.transform;
         playerCameraPosition = playerCameraTransform.position;
         playerCameraVector = playerCameraTransform.forward * -1;
@@ -53,6 +54,20 @@ public class KeySlot : MonoBehaviour
         {
           return;
         }
+
+        Transform nearestPlayerCameraTransform = GameObject.FindWithTag("MainCamera").transform;
+        foreach(GameObject playerCamera in GameObject.FindGameObjectsWithTag("MainCamera"))
+        {
+          if(Vector3.Distance(transform.position, playerCamera.transform.position)
+          < Vector3.Distance(transform.position, nearestPlayerCameraTransform.position))
+          {
+            nearestPlayerCameraTransform = playerCamera.transform;
+          }
+        }
+        playerCameraTransform = nearestPlayerCameraTransform;
+        playerCamera = playerCameraTransform.gameObject;
+        player = playerCameraTransform.parent.gameObject;
+        playerInputActionAsset = player.GetComponent<PlayerInput>().actions;
 
         //float heightAdjust = Mathf.Sin(Time.fixedTime * (float)2) * (float)0.1;
 
