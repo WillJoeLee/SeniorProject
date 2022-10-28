@@ -18,7 +18,8 @@ public class EnemySpawner : MonoBehaviour
         atOnceCurr = GameObject.FindGameObjectsWithTag("Enemy").Length;
         if (atOnceCurr < atOnceMax && overAllCurr < overAllMax)
         {
-            var enemy = Instantiate(enemyModel, enemySpawn.position, enemySpawn.rotation);
+            var enemy = Instantiate(enemyModel);
+            enemy.transform.position = enemySpawn.position;
             overAllCurr++;
         }
     }

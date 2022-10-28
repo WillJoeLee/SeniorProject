@@ -8,8 +8,8 @@ public class EnemyController : MonoBehaviour
     Transform target;
     NavMeshAgent agent;
 
-    public float lookRadius = 10f;
-    public float attackRadius = 3f;
+    public float lookRadius = 80f;
+    public float attackRadius = 2f;
 
     public GameObject Hands;
 

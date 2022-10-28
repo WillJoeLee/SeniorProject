@@ -832,7 +832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42d0cbb48d88f4327b3775846d49570b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookRadius: 10
+  lookRadius: 80
   attackRadius: 2
   Hands: {fileID: 2175763875847729373}
 --- !u!1 &2175763875847729373
