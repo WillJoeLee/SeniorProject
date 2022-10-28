@@ -27,7 +27,7 @@ public class MeleeCollisionDetection : MonoBehaviour
             collision.gameObject.GetComponent<Animator>().SetTrigger("IsHurt");
             Instantiate(HitParticles, new Vector3(x, y, z), rotation);
 
-            enemy.TakeDamage(35);
+            enemy.TakeDamage(100);
         }
     }
 }
