@@ -35,6 +35,7 @@ public class KeySlot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerCamera = GameObject.FindWithTag("MainCamera");
         playerCameraTransform = playerCamera.transform;
         playerCameraPosition = playerCameraTransform.position;
         playerCameraVector = playerCameraTransform.forward * -1;
