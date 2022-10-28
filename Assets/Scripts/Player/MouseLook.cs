@@ -40,7 +40,7 @@ public class MouseLook : MonoBehaviour
         bool isController = false;
         try
         {
-          Debug.Log(playerInputActionAsset.actionMaps[0].actions[2].activeControl.displayName);
+          //Debug.Log(playerInputActionAsset.actionMaps[0].actions[2].activeControl.displayName);
           isController = playerInputActionAsset.actionMaps[0].actions[2].activeControl.displayName == "Right Stick";
         }
         catch(System.NullReferenceException){}
