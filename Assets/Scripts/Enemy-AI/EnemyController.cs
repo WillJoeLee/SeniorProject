@@ -23,6 +23,17 @@ public class EnemyController : MonoBehaviour
     //update is called once per frame
     void Update()
     {
+        Transform nearestPlayerTransform = GameObject.FindWithTag("Player").transform;
+        foreach(GameObject player in GameObject.FindGameObjectsWithTag("Player"))
+        {
+          if(Vector3.Distance(transform.position, player.transform.position)
+          < Vector3.Distance(transform.position, nearestPlayerTransform.position))
+          {
+            nearestPlayerTransform = player.transform;
+          }
+        }
+        target = nearestPlayerTransform;
+
         float distance = Vector3.Distance(target.position, transform.position);
 
         //System.Console.WriteLine("Distance from player: " + distance);
