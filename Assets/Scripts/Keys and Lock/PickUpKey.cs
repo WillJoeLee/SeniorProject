@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PickUpKey : MonoBehaviour
 {
-    public GameObject playerCamera;
+    private GameObject playerCamera;
     public GameObject text;
     public GameObject KeySpawns;
     public bool DebugMode;
@@ -28,6 +28,7 @@ public class PickUpKey : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         playerInputActionAsset = player.GetComponent<PlayerInput>().actions;
+        playerCamera = GameObject.FindWithTag("MainCamera");
         playerCameraTransform = playerCamera.transform;
         playerCameraPosition = playerCameraTransform.position;
         playerCameraVector = playerCameraTransform.forward * -1;
