@@ -15,7 +15,7 @@ public class Health : MonoBehaviour
     public bool isDead = false;
 
     // Health Bar additions
-    // Any quesrtions reach out to: Michel
+    // Any questions reach out to: Michel
 
     public HealthBar healthBar;
 
@@ -27,8 +27,6 @@ public class Health : MonoBehaviour
         // Set the health bar to be invisible until game start, see Update()
         healthBar.gameObject.SetActive(false);
     }
-
-
 
     public void Heal(float num)
     {
@@ -49,13 +47,17 @@ public class Health : MonoBehaviour
 
     }
 
-    void Respawn()
+    private void Respawn1()
     {
         currHealth = maxHealth;
         healthBar.SetHealth(currHealth);
         player.GetComponent<CharacterController>().enabled = false;
         player.position = playerSpawn.position;
         player.GetComponent<CharacterController>().enabled = true;
+    }
+
+    public void Respawn2()
+    {
         isDead = false;
     }
 
@@ -71,7 +73,7 @@ public class Health : MonoBehaviour
             if (currHealth == 0)
             {
                 isDead = true;
-                Respawn();
+                Respawn1();
             }
         }
 

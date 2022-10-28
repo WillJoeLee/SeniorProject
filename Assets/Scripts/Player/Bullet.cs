@@ -22,10 +22,10 @@ public class Bullet : MonoBehaviour
 
             Quaternion rotation = collision.gameObject.transform.rotation;
 
-            //collision.gameObject.GetComponent<Animator>().SetTrigger("Hit");
+            collision.gameObject.GetComponent<Animator>().SetTrigger("IsHurt");
             Instantiate(HitParticles, new Vector3(x, y, z), rotation);
 
-            enemy.TakeDamage(35);
+            enemy.TakeDamage(100);
         }
         Destroy(gameObject);
     }
