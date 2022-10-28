@@ -13,9 +13,15 @@ public class Gun : MonoBehaviour
 
     private const int LEFT_CLICK = 0;
 
-    public InputActionAsset playerInputActionAsset;
+    public PlayerInput playerInput;
+    private InputActionAsset playerInputActionAsset;
     public float fireDelay;
     private float lastFired = 0;
+
+    void Start()
+    {
+      playerInputActionAsset = playerInput.actions;
+    }
 
     //update is called once per frame
     void Update()

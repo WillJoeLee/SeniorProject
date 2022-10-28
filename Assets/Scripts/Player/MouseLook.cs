@@ -7,7 +7,8 @@ using UnityEngine.InputSystem;
 public class MouseLook : MonoBehaviour
 {
     public Transform playerBody;
-    public InputActionAsset playerInputActionAsset;
+    public PlayerInput playerInput;
+    private InputActionAsset playerInputActionAsset;
 
     //default mouse sensitivity for now..
     public float mouseSensitivity = 50f;
@@ -23,6 +24,7 @@ public class MouseLook : MonoBehaviour
     //start is called before the first frame update
     void Start()
     {
+        playerInputActionAsset = playerInput.actions;
         //Checks to see if the player is out of the main menu
         if (SceneManager.GetActiveScene().buildIndex != IN_MAIN_MENU)
         {

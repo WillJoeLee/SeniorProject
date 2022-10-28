@@ -1298,8 +1298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerBody: {fileID: 1341022865}
-  playerInputActionAsset: {fileID: -944628639613478452, guid: f218140b930b31d42af59706b7299e24,
-    type: 3}
+  playerInput: {fileID: 1341022869}
   mouseSensitivity: 30
   controllerSensitivity: 300
   ySensitivityControllerReduction: 0.5
@@ -4934,6 +4933,38 @@ Transform:
   m_Father: {fileID: 216440058}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1080474805
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1080474806}
+  m_Layer: 0
+  m_Name: Players
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1080474806
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080474805}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: -8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1341022865}
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1091185789
 GameObject:
   m_ObjectHideFlags: 0
@@ -6187,7 +6218,7 @@ GameObject:
   - component: {fileID: 1341022870}
   m_Layer: 0
   m_Name: First Person Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6200,15 +6231,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1341022864}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -8}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 330585546}
   - {fileID: 940881968}
   - {fileID: 1001773399}
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 1080474806}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1341022866
 MonoBehaviour:
@@ -6231,8 +6262,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   jumpHeight: 3
-  playerInputActionAsset: {fileID: -944628639613478452, guid: f218140b930b31d42af59706b7299e24,
-    type: 3}
+  playerInput: {fileID: 1341022869}
 --- !u!143 &1341022867
 CharacterController:
   m_ObjectHideFlags: 0
@@ -8427,8 +8457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponIndex: 0
   MeleeWeapon: {fileID: 8147061480492714012}
-  playerInputActionAsset: {fileID: -944628639613478452, guid: f218140b930b31d42af59706b7299e24,
-    type: 3}
+  playerInput: {fileID: 1341022869}
 --- !u!1 &1775220627
 GameObject:
   m_ObjectHideFlags: 0
@@ -10065,6 +10094,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2136212194}
   - component: {fileID: 2136212193}
+  - component: {fileID: 2136212195}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -10100,6 +10130,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2136212195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136212192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NotificationBehavior: 0
+  m_MaxPlayerCount: 4
+  m_AllowJoining: 1
+  m_JoinBehavior: 0
+  m_PlayerJoinedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_PlayerLeftEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_JoinAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  m_PlayerPrefab: {fileID: 1341022864}
+  m_SplitScreen: 1
+  m_MaintainAspectRatioInSplitScreen: 0
+  m_FixedNumberOfSplitScreens: -1
+  m_SplitScreenRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &2143234476
 GameObject:
   m_ObjectHideFlags: 0
@@ -10429,6 +10503,11 @@ PrefabInstance:
       propertyPath: bulletSpeed
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 1722047548391496089, guid: a0044c510a8f07e418da8020531a6144,
+        type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 1341022869}
     - target: {fileID: 1722047548391496089, guid: a0044c510a8f07e418da8020531a6144,
         type: 3}
       propertyPath: bulletPreFab
@@ -11014,8 +11093,7 @@ MonoBehaviour:
   CanAttack: 1
   SwordAttackSound: {fileID: 0}
   IsAttacking: 0
-  playerInputActionAsset: {fileID: -944628639613478452, guid: f218140b930b31d42af59706b7299e24,
-    type: 3}
+  playerInput: {fileID: 1341022869}
 --- !u!65 &8816919889835528873
 BoxCollider:
   m_ObjectHideFlags: 0

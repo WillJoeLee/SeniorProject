@@ -12,7 +12,13 @@ public class MeleeWeapon : MonoBehaviour
 	//collision detection
 	public bool IsAttacking = false;
 
-	public InputActionAsset playerInputActionAsset;
+	public PlayerInput playerInput;
+	private InputActionAsset playerInputActionAsset;
+
+	void Start()
+	{
+		playerInputActionAsset = playerInput.actions;
+	}
 
 	//update is called once per frame
 	void Update()
