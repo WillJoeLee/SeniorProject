@@ -55,6 +55,7 @@ public class Heart : MonoBehaviour
           if (player.TryGetComponent<Health>(out Health revive)) {
             revive.Respawn2();
           }
+          pickedUp = false;
           return;
         }
 

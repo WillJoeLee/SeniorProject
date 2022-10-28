@@ -16,7 +16,6 @@ public class Health : MonoBehaviour
 
     // Health Bar additions
     // Any questions reach out to: Michel
-
     public HealthBar healthBar;
 
     void Start()
@@ -49,15 +48,23 @@ public class Health : MonoBehaviour
 
     private void Respawn1()
     {
+        currHealth = 1;
+        healthBar.SetHealth(currHealth);
+        player.GetComponent<CharacterController>().enabled = false;
+        player.position = playerSpawn.position;
+        player.GetComponent<CharacterController>().enabled = true;
+        transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+        isDead = true;
+    }
+
+    public void Respawn2()
+    {
         currHealth = maxHealth;
         healthBar.SetHealth(currHealth);
         player.GetComponent<CharacterController>().enabled = false;
         player.position = playerSpawn.position;
         player.GetComponent<CharacterController>().enabled = true;
-    }
-
-    public void Respawn2()
-    {
+        transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
         isDead = false;
     }
 
@@ -72,10 +79,8 @@ public class Health : MonoBehaviour
 
             if (currHealth == 0)
             {
-                isDead = true;
                 Respawn1();
             }
         }
-
     }
 }
