@@ -7792,6 +7792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1341022865}
   playerSpawn: {fileID: 1301847413}
+  runes: {fileID: 1341022870}
   maxHealth: 100
   currHealth: 100
   isDead: 0
