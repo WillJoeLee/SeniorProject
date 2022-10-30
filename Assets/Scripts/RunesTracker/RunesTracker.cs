@@ -40,7 +40,31 @@ public class RunesTracker : MonoBehaviour
 
     }
 
-    public void DeactivateRunes()
+    public void SetDeactiveRune(string rune)
+    {
+        switch (rune)
+        {
+            case RUNE_E:
+                // set e as not active
+                Rune_E_Image.GetComponent<Image>().color = new Color32(0, 0, 0, 255);
+                break;
+            case RUNE_H:
+                // set h as not active
+                Rune_H_Image.GetComponent<Image>().color = new Color32(0, 0, 0, 255);
+                break;
+            case RUNE_R:
+                // set r as not active
+                Rune_R_Image.GetComponent<Image>().color = new Color32(0, 0, 0, 255);
+                break;
+            case RUNE_X:
+                // set x as not active
+                Rune_X_Image.GetComponent<Image>().color = new Color32(0, 0, 0, 255);
+                break;
+        }
+
+    }
+
+    public void DisableRunes()
     {
         Rune_E_Image.GetComponent<Image>().color = new Color32(0, 0, 0, 0);
         Rune_H_Image.GetComponent<Image>().color = new Color32(0, 0, 0, 0);
