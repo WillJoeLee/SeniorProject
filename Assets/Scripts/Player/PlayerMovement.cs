@@ -15,12 +15,12 @@ public class PlayerMovement : MonoBehaviour
 
     //variables for jumping & falling
     Vector3 velocity;
-    public float gravity = -9.81f;
+    public float gravity = -10.81f;
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
     bool isGrounded;
-    public float jumpHeight = 3f;
+    public float jumpHeight = 1f;
 
     public PlayerInput playerInput;
     private InputActionAsset playerInputActionAsset;
