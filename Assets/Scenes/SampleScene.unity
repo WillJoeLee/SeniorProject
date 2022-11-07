@@ -8067,13 +8067,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1341022867}
   speed: 12
-  gravity: -9.81
+  gravity: -10.81
   groundCheck: {fileID: 1001773399}
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
     m_Bits: 128
-  jumpHeight: 3
+  jumpHeight: 1
   playerInput: {fileID: 1341022869}
 --- !u!143 &1341022867
 CharacterController:
