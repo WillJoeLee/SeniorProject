@@ -27,6 +27,10 @@ public class Bullet : MonoBehaviour
 
             enemy.TakeDamage(100);
         }
+        else if (collision.gameObject.TryGetComponent<EnemyMeleeController>(out EnemyMeleeController temp))
+        {
+            return;
+        }
         Destroy(gameObject);
     }
 }
