@@ -13517,6 +13517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInputManager: {fileID: 2136212195}
+  ReadyTexts: {fileID: 1525193947}
 --- !u!1 &2143234476
 GameObject:
   m_ObjectHideFlags: 0
