@@ -25,12 +25,7 @@ public class Bullet : MonoBehaviour
             collision.gameObject.GetComponent<Animator>().SetTrigger("IsHurt");
             Instantiate(HitParticles, new Vector3(x, y, z), rotation);
 
-            enemy.TakeDamage(100);
+            enemy.TakeDamage(Random.Range(5, 45));
         }
-        else if (collision.gameObject.TryGetComponent<EnemyMeleeController>(out EnemyMeleeController temp))
-        {
-            return;
-        }
-        Destroy(gameObject);
     }
 }
