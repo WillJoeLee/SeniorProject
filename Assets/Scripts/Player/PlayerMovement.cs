@@ -69,13 +69,18 @@ public class PlayerMovement : MonoBehaviour
           playerIndex++;
         }
 
+        GameObject PlayerReadyText = ReadyTexts.transform.GetChild(playerIndex).gameObject;
+        TextMesh PlayerTextMesh = PlayerReadyText.GetComponent<TextMesh>();
+
         if(isReady)
         {
-          ReadyTexts.transform.GetChild(playerIndex).gameObject.tag = "Ready";
+          PlayerReadyText.tag = "Ready";
+          PlayerTextMesh.text = "Ready";
         }
         else
         {
-          ReadyTexts.transform.GetChild(playerIndex).gameObject.tag = "NotReady";
+          PlayerReadyText.tag = "NotReady";
+          PlayerTextMesh.text = "Not Ready";
         }
 
 
