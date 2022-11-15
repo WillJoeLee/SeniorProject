@@ -8,15 +8,13 @@ public class Gun : MonoBehaviour
     public GameObject self;
     public Transform bulletSpawn;
     public GameObject bulletModel;
-    public float bulletSpeed = 10;
+    public float bulletSpeed;
     public AudioClip ShootAttackSound;
-
-    private const int LEFT_CLICK = 0;
 
     public PlayerInput playerInput;
     private InputActionAsset playerInputActionAsset;
-    public float fireDelay;
     private float lastFired = 0;
+    public float fireDelay;
 
     void Start()
     {
