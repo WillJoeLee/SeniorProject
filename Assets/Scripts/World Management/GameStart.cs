@@ -24,6 +24,15 @@ public class GameStart : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      int playerIndex = 0;
+      foreach(GameObject Player in GameObject.FindGameObjectsWithTag("Player"))
+      {
+        Debug.Log(Player.transform.position);
+        Transform associatedReadyText = ReadyTexts.transform.GetChild(playerIndex);
+        Player.transform.position = new Vector3(associatedReadyText.position.x, 1, associatedReadyText.position.z);
+        playerIndex++;
+      }
+
       for(int i = 0; i < playerInputManager.playerCount; i++)
       {
         ReadyTexts.transform.GetChild(i).gameObject.SetActive(true);
@@ -50,6 +59,16 @@ public class GameStart : MonoBehaviour
       {
         float timeLeft = timeEndCountDown - Time.realtimeSinceStartup;
         StartingInTextMesh.text = "Starting in " + (int)timeLeft;
+
+        if(timeLeft <= 0)
+        {
+          ReadyTexts.SetActive(false);
+          StartingInTextMesh.gameObject.SetActive(false);
+          playerInputManager.splitScreen = true;
+          playerInputManager.enabled = false;
+          playerInputManager.enabled = true;
+          transform.gameObject.SetActive(false);
+        }
       }
       else
       {
