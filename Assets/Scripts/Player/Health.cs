@@ -12,6 +12,7 @@ public class Health : MonoBehaviour
     public GameObject body;
     public GameObject weaponHolder;
     public GameObject angelicShield;
+    public Runes runes;
 
     public float maxHealth = 100f;
     public float currHealth = 100f;
@@ -59,6 +60,7 @@ public class Health : MonoBehaviour
         weaponHolder.SetActive(false);
         angelicShield.SetActive(true);
         body.SetActive(false);
+        runes.deactivateAllRunes();
         isDead = true;
     }
 
@@ -71,6 +73,7 @@ public class Health : MonoBehaviour
         player.GetComponent<CharacterController>().enabled = true;
         weaponHolder.SetActive(true);
         body.SetActive(true);
+        runes.reactivateAllRunes();
         isDead = false;
     }
 

@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float life = 1f;
+    public float damageRangeStart;
+    public float damageRangeEnd;
+    private float life = 1f;
     public GameObject HitParticles;
 
     void Awake()
@@ -25,8 +27,7 @@ public class Bullet : MonoBehaviour
             collision.gameObject.GetComponent<Animator>().SetTrigger("IsHurt");
             Instantiate(HitParticles, new Vector3(x, y, z), rotation);
 
-            enemy.TakeDamage(100);
+            enemy.TakeDamage(Random.Range(damageRangeStart, damageRangeEnd));
         }
-        Destroy(gameObject);
     }
 }

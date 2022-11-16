@@ -63,6 +63,9 @@ public class EnemyController : MonoBehaviour
         {
             GetComponent<Animator>().SetTrigger("TargetLost");
         }
+
+
+
     }
 
     void FaceTarget()
