@@ -21,18 +21,72 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
     bool isGrounded;
     public float jumpHeight = 1f;
+    public GameObject ReadyTexts;
+    public GameObject theCube;
 
     public PlayerInput playerInput;
     private InputActionAsset playerInputActionAsset;
+    private bool isReady;
+    private bool canChangeReady;
 
     void Start()
     {
       playerInputActionAsset = playerInput.actions;
+      isReady = false;
+      canChangeReady = true;
     }
 
     //update is called once per frame
     void Update()
     {
+        int playerIndex = 0;
+        GameObject thisPlayer = transform.gameObject;
+
+        foreach(GameObject Player in GameObject.FindGameObjectsWithTag("Player"))
+        {
+          if(Player == thisPlayer)
+          {
+            break;
+          }
+          playerIndex++;
+        }
+
+        if(playerInputActionAsset.actionMaps[0].actions[8].ReadValue<float>() == (float)0)
+        {
+          canChangeReady = true;
+        }
+
+        // Ready-up button
+        if(playerInputActionAsset.actionMaps[0].actions[8].ReadValue<float>() == (float)1 && canChangeReady)
+        {
+          canChangeReady = false;
+          if(isReady)
+          {
+            isReady = false;
+          }
+          else
+          {
+            isReady = true;
+          }
+        }
+
+
+
+        GameObject PlayerReadyText = ReadyTexts.transform.GetChild(playerIndex).gameObject;
+        TextMesh PlayerTextMesh = PlayerReadyText.GetComponent<TextMesh>();
+
+        if(isReady)
+        {
+          PlayerReadyText.tag = "Ready";
+          PlayerTextMesh.text = "Ready";
+        }
+        else
+        {
+          PlayerReadyText.tag = "NotReady";
+          PlayerTextMesh.text = "Not Ready";
+        }
+
+
         //jumping and falling checks added here
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
