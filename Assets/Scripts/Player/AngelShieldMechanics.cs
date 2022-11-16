@@ -6,70 +6,38 @@ using UnityEngine.InputSystem;
 public class AngelShieldMechanics : MonoBehaviour
 {
     public GameObject angelicShield;
-    public bool CanAttack = true;
     public AudioClip ShieldAttackSound;
 
     //collision detection
     public bool IsAttacking = false;
 
     public PlayerInput playerInput;
+    public Health health;
     private InputActionAsset playerInputActionAsset;
 
-    // Update is called once per frame
+    void Start()
+    {
+        playerInputActionAsset = playerInput.actions;
+    }
+
     void Update()
     {
 
-        if (angelicShield.activeSelf)
+        if (health.isDead)
         {
-
             bool attackBool = playerInputActionAsset.actionMaps[0].actions[3].ReadValue<float>() == (float)1;
             if (attackBool)
             {
-                if (CanAttack)
-                {
-                    ShieldAttack();
-                }
+                angelicShield.SetActive(true);
+                IsAttacking = true;
             }
             else
             {
-                var angelicShieldRenderer = angelicShield.GetComponent<Renderer>();
-                
-                Color customColor = new Color32(0, 0, 0, 0);
-                angelicShieldRenderer.material.SetColor("_Color", customColor);
+                angelicShield.SetActive(false);
+                IsAttacking = false;
             }
         }
+        
     }
-
-    public void ShieldAttack()
-    {
-        IsAttacking = true;
-        CanAttack = false;
-        playerInputActionAsset.actionMaps[0].actions[6].Disable();
-        playerInputActionAsset.actionMaps[0].actions[4].Disable();
-
-        var angelicShieldRenderer = angelicShield.GetComponent<Renderer>();
-
-        Color customColor = new Color(0.0f, 212.0f, 212.0f, 86.0f);
-        angelicShieldRenderer.material.SetColor("_Color", customColor);
-
-        //GetComponent<AudioSource>().PlayOneShot(ShieldAttackSound);
-        StartCoroutine(ResetAttackCooldown());
-    }
-
-    //co-routine's
-    IEnumerator ResetAttackCooldown()
-    {
-        StartCoroutine(ResetAttackBool());
-        yield return new WaitForSeconds(1.0f);
-        CanAttack = true;
-        playerInputActionAsset.actionMaps[0].actions[6].Enable();
-        playerInputActionAsset.actionMaps[0].actions[4].Enable();
-    }
-
-    IEnumerator ResetAttackBool()
-    {
-        //set to length of final animation, for now default 1 sec
-        yield return new WaitForSeconds(1.0f);
-        IsAttacking = false;
-    }
+    
 }

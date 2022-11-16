@@ -70,7 +70,6 @@ public class Health : MonoBehaviour
         player.position = playerSpawn.position;
         player.GetComponent<CharacterController>().enabled = true;
         weaponHolder.SetActive(true);
-        angelicShield.SetActive(false);
         body.SetActive(true);
         isDead = false;
     }
