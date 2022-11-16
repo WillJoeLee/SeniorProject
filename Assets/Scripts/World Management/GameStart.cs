@@ -8,30 +8,50 @@ public class GameStart : MonoBehaviour
     public PlayerInputManager playerInputManager;
     public GameObject ReadyTexts;
     public TextMesh StartingInTextMesh;
+    public GameObject theCube;
+    public GameObject SpawnBox;
+    public TextMesh NumberOfPlayersTextMesh;
+    public GameObject EnemySpawnPoints;
 
-    private bool allReady;
     private bool countingDown;
     private float timeEndCountDown;
     private float timeNow;
+    private bool started;
 
     // Start is called before the first frame update
     void Start()
     {
-      allReady = false;
       countingDown = false;
+      started = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-      int playerIndex = 0;
-      foreach(GameObject Player in GameObject.FindGameObjectsWithTag("Player"))
+      if(started == true)
       {
-        Debug.Log(Player.transform.position);
-        Transform associatedReadyText = ReadyTexts.transform.GetChild(playerIndex);
-        Player.transform.position = new Vector3(associatedReadyText.position.x, 1, associatedReadyText.position.z);
-        playerIndex++;
+        return;
       }
+      if(playerInputManager.playerCount > 1)
+      {
+        NumberOfPlayersTextMesh.text = playerInputManager.playerCount + " Players";
+      }
+      else
+      {
+        NumberOfPlayersTextMesh.text = "1 Player";
+      }
+      /*
+      int playerIndex = 0;
+
+      foreach(GameObject player in GameObject.FindGameObjectsWithTag("Player"))
+      {
+        Debug.Log(player.transform.position);
+        Transform associatedReadyText = ReadyTexts.transform.GetChild(playerIndex);
+        player.transform.position = new Vector3(associatedReadyText.position.x, 1, associatedReadyText.position.z);
+        playerIndex++;
+      }*/
+
+
 
       for(int i = 0; i < playerInputManager.playerCount; i++)
       {
@@ -64,10 +84,13 @@ public class GameStart : MonoBehaviour
         {
           ReadyTexts.SetActive(false);
           StartingInTextMesh.gameObject.SetActive(false);
-          playerInputManager.splitScreen = true;
-          playerInputManager.enabled = false;
-          playerInputManager.enabled = true;
-          transform.gameObject.SetActive(false);
+          //playerInputManager.splitScreen = true;
+          //playerInputManager.enabled = false;
+          //playerInputManager.enabled = true;
+          theCube.tag = "StartGame";
+          SpawnBox.SetActive(false);
+          EnemySpawnPoints.SetActive(true);
+          started = true;
         }
       }
       else

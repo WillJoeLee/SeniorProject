@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
     public float jumpHeight = 1f;
     public GameObject ReadyTexts;
+    public GameObject theCube;
 
     public PlayerInput playerInput;
     private InputActionAsset playerInputActionAsset;
@@ -38,6 +39,18 @@ public class PlayerMovement : MonoBehaviour
     //update is called once per frame
     void Update()
     {
+        int playerIndex = 0;
+        GameObject thisPlayer = transform.gameObject;
+
+        foreach(GameObject Player in GameObject.FindGameObjectsWithTag("Player"))
+        {
+          if(Player == thisPlayer)
+          {
+            break;
+          }
+          playerIndex++;
+        }
+
         if(playerInputActionAsset.actionMaps[0].actions[8].ReadValue<float>() == (float)0)
         {
           canChangeReady = true;
@@ -57,17 +70,7 @@ public class PlayerMovement : MonoBehaviour
           }
         }
 
-        int playerIndex = 0;
-        GameObject thisPlayer = transform.gameObject;
 
-        foreach(GameObject Player in GameObject.FindGameObjectsWithTag("Player"))
-        {
-          if(Player == thisPlayer)
-          {
-            break;
-          }
-          playerIndex++;
-        }
 
         GameObject PlayerReadyText = ReadyTexts.transform.GetChild(playerIndex).gameObject;
         TextMesh PlayerTextMesh = PlayerReadyText.GetComponent<TextMesh>();
