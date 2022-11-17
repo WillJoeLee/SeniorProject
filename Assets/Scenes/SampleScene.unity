@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.024482785, g: 0.019333275, b: 0.020856362, a: 1}
+  m_IndirectSpecularColor: {r: 0.024482787, g: 0.019333275, b: 0.020856362, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1643,7 +1643,7 @@ GameObject:
   - component: {fileID: 321070780}
   - component: {fileID: 321070779}
   m_Layer: 0
-  m_Name: Press any Button
+  m_Name: Press Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1672,7 +1672,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 321070777}
-  m_Text: Press any Button to Join...
+  m_Text: Press R (Y/Triangle) to Join...
   m_OffsetZ: 0
   m_CharacterSize: 0.34
   m_LineSpacing: 1
@@ -2907,7 +2907,7 @@ Light:
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 5000
+  m_ColorTemperature: 20000
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -5190,6 +5190,7 @@ MonoBehaviour:
   lockMeshRenderer: {fileID: 288091302701321299}
   lockMaterialIndex: 1
   Quadrants: {fileID: 2079973862}
+  winInform: {fileID: 2136212192}
 --- !u!1 &697001231 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5034443310573037839, guid: 6c226dba47939f24ab40d70ecc1e9c76,
@@ -5603,6 +5604,7 @@ MonoBehaviour:
   lockMeshRenderer: {fileID: 288091302701321299}
   lockMaterialIndex: 2
   Quadrants: {fileID: 2079973862}
+  winInform: {fileID: 2136212192}
 --- !u!1 &801377449
 GameObject:
   m_ObjectHideFlags: 0
@@ -7051,6 +7053,7 @@ MonoBehaviour:
   lockMeshRenderer: {fileID: 288091302701321299}
   lockMaterialIndex: 3
   Quadrants: {fileID: 2079973862}
+  winInform: {fileID: 2136212192}
 --- !u!1 &1040861991
 GameObject:
   m_ObjectHideFlags: 0
@@ -9550,8 +9553,8 @@ MonoBehaviour:
   player: {fileID: 1341022865}
   playerSpawn: {fileID: 1301847413}
   runes: {fileID: 1341022870}
-  maxHealth: 100
-  currHealth: 100
+  maxHealth: 1000
+  currHealth: 1000
   isDead: 0
   healthBar: {fileID: 807343168}
 --- !u!114 &1341022869
@@ -11125,6 +11128,7 @@ MonoBehaviour:
   lockMeshRenderer: {fileID: 288091302701321299}
   lockMaterialIndex: 4
   Quadrants: {fileID: 2079973862}
+  winInform: {fileID: 2136212192}
 --- !u!1 &1541457289
 GameObject:
   m_ObjectHideFlags: 0
@@ -15033,6 +15037,7 @@ GameObject:
   - component: {fileID: 2136212193}
   - component: {fileID: 2136212195}
   - component: {fileID: 2136212196}
+  - component: {fileID: 2136212197}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -15131,6 +15136,19 @@ MonoBehaviour:
   SpawnBox: {fileID: 1272748444}
   NumberOfPlayersTextMesh: {fileID: 370138786}
   EnemySpawnPoints: {fileID: 168006025}
+--- !u!114 &2136212197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136212192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac1047297fb6e44db5aaf0c0938aea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winGame: 0
 --- !u!1 &2143234476
 GameObject:
   m_ObjectHideFlags: 0
