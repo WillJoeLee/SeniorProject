@@ -32,6 +32,8 @@ public class KeySlot : MonoBehaviour
 
     private bool keyPlaced;
 
+    public GameObject winInform;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -123,7 +125,10 @@ public class KeySlot : MonoBehaviour
 
                 if(allKeysPlaced)
                 {
-                  Debug.Log("Angels win!");
+                  if (winInform.TryGetComponent<GameEnd>(out GameEnd yaywewon))
+                            {
+                                yaywewon.winGame = true;
+                            }
                   return;
                 }
 
