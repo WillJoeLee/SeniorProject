@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.024482787, g: 0.019333275, b: 0.020856362, a: 1}
+  m_IndirectSpecularColor: {r: 0.024482785, g: 0.019333275, b: 0.020856362, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2863,8 +2863,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.5
+  m_Color: {r: 0.49056602, g: 0.038856234, b: 0.0069419593, a: 1}
+  m_Intensity: 0.2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -8564,7 +8564,7 @@ GameObject:
   - component: {fileID: 1172070472}
   - component: {fileID: 1172070471}
   - component: {fileID: 1172070470}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: FireStation_Quadrant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8799,7 +8799,7 @@ GameObject:
   - component: {fileID: 1204045886}
   - component: {fileID: 1204045885}
   - component: {fileID: 1204045884}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Housing_Quadrant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9169,7 +9169,7 @@ Transform:
   - {fileID: 321070778}
   - {fileID: 370138785}
   m_Father: {fileID: 1820706998}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1288447613 stripped
 GameObject:
@@ -9750,7 +9750,7 @@ GameObject:
   - component: {fileID: 1387416499}
   - component: {fileID: 1387416498}
   - component: {fileID: 1387416497}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Garage_Quadrant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12604,7 +12604,7 @@ GameObject:
   - component: {fileID: 1775220631}
   - component: {fileID: 1775220630}
   - component: {fileID: 1775220629}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Library_Quadrant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12911,7 +12911,6 @@ Transform:
   - {fileID: 520566574}
   - {fileID: 936709375}
   - {fileID: 1411739221}
-  - {fileID: 2079973863}
   - {fileID: 1272748445}
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -14709,7 +14708,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079973862}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14718,8 +14717,8 @@ Transform:
   - {fileID: 1387416496}
   - {fileID: 1204045883}
   - {fileID: 1172070469}
-  m_Father: {fileID: 1820706998}
-  m_RootOrder: 3
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2079973864
 MonoBehaviour:
