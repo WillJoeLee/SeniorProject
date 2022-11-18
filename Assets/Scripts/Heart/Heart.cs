@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Heart : MonoBehaviour
 {
+    public GameObject heartsParent;
     private GameObject playerCamera;
     public GameObject text;
     private GameObject player;
@@ -52,7 +53,12 @@ public class Heart : MonoBehaviour
     {
         if(pickedUp)
         {
-          if (player.TryGetComponent<Health>(out Health revive)) {
+          if (heartsParent.TryGetComponent<Hearts>(out Hearts parentHearts))
+          {
+            parentHearts.trueDeath++;
+          }
+          if (player.TryGetComponent<Health>(out Health revive))
+          {
             revive.Respawn2();
           }
           pickedUp = false;

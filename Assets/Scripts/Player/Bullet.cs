@@ -29,5 +29,10 @@ public class Bullet : MonoBehaviour
 
             enemy.TakeDamage(Random.Range(damageRangeStart, damageRangeEnd));
         }
+        else if (collision.gameObject.TryGetComponent<EnemyMeleeController>(out EnemyMeleeController temp))
+        {
+            return;
+        }
+        Destroy(gameObject);
     }
 }
