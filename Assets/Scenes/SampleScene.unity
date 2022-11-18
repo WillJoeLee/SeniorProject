@@ -16042,6 +16042,7 @@ MonoBehaviour:
   loseGame: 0
   winText: {fileID: 815581680}
   loseText: {fileID: 2029525445}
+  VRTexts: {fileID: 976150145}
 --- !u!1 &2143234476
 GameObject:
   m_ObjectHideFlags: 0

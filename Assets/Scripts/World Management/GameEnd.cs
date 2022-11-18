@@ -21,7 +21,19 @@ public class GameEnd : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (winGame || loseGame)
+        // If all players are dead
+        //GameObject.FindGameObjectsWithTag("Player");
+        bool allDead = true;
+        foreach(GameObject player in GameObject.FindGameObjectsWithTag("Player"))
+        {
+          if(player.transform.GetChild(0).GetChild(0).gameObject.activeInHierarchy == true)
+          {
+            allDead = false;
+          }
+        }
+
+
+        if (winGame || (loseGame && allDead))
         {
             if (winGame)
             {
@@ -33,7 +45,7 @@ public class GameEnd : MonoBehaviour
                   vrTextMesh.text = "Angels Win!";
                 }
             }
-            if (loseGame)
+            if (loseGame && allDead)
             {
                 loseText.SetActive(true);
                 loseGame = false;
