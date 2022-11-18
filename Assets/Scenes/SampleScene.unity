@@ -7073,7 +7073,7 @@ GameObject:
   m_Component:
   - component: {fileID: 976150146}
   m_Layer: 7
-  m_Name: VR Text
+  m_Name: VR Texts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16020,6 +16020,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInputManager: {fileID: 2136212195}
   ReadyTexts: {fileID: 1525193947}
+  VRTexts: {fileID: 976150145}
   StartingInTextMesh: {fileID: 1719029647}
   theCube: {fileID: 321082141}
   SpawnBox: {fileID: 1272748444}
