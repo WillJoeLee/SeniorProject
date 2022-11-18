@@ -9,6 +9,9 @@ public class Health : MonoBehaviour
 
     public Transform player;
     public Transform playerSpawn;
+    public GameObject body;
+    public GameObject weaponHolder;
+    public GameObject angelicShield;
     public Runes runes;
 
     public float maxHealth = 100f;
@@ -54,7 +57,9 @@ public class Health : MonoBehaviour
         player.GetComponent<CharacterController>().enabled = false;
         player.position = playerSpawn.position;
         player.GetComponent<CharacterController>().enabled = true;
-        transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+        weaponHolder.SetActive(false);
+        angelicShield.SetActive(true);
+        body.SetActive(false);
         runes.deactivateAllRunes();
         isDead = true;
     }
@@ -66,7 +71,8 @@ public class Health : MonoBehaviour
         player.GetComponent<CharacterController>().enabled = false;
         player.position = playerSpawn.position;
         player.GetComponent<CharacterController>().enabled = true;
-        transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+        weaponHolder.SetActive(true);
+        body.SetActive(true);
         runes.reactivateAllRunes();
         isDead = false;
     }
