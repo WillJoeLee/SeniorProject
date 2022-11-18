@@ -7,6 +7,7 @@ public class GameStart : MonoBehaviour
 {
     public PlayerInputManager playerInputManager;
     public GameObject ReadyTexts;
+    public GameObject VRTexts;
     public TextMesh StartingInTextMesh;
     public GameObject theCube;
     public GameObject SpawnBox;
@@ -73,6 +74,11 @@ public class GameStart : MonoBehaviour
       if(numberOfPlayers != numberOfReadyPlayers)
       {
         countingDown = false;
+        foreach(Transform T in VRTexts.transform)
+        {
+          TextMesh vrTextMesh = T.gameObject.GetComponent<TextMesh>();
+          vrTextMesh.text = "Waiting for Angels...";
+        }
       }
 
       if(countingDown)
@@ -80,9 +86,22 @@ public class GameStart : MonoBehaviour
         float timeLeft = timeEndCountDown - Time.realtimeSinceStartup;
         StartingInTextMesh.text = "Starting in " + (int)timeLeft;
 
+        foreach(Transform T in VRTexts.transform)
+        {
+          TextMesh vrTextMesh = T.gameObject.GetComponent<TextMesh>();
+          vrTextMesh.text = "Starting in " + (int)timeLeft;
+        }
+
         if(timeLeft <= 0)
         {
           ReadyTexts.SetActive(false);
+
+          foreach(Transform T in VRTexts.transform)
+          {
+            TextMesh vrTextMesh = T.gameObject.GetComponent<TextMesh>();
+            vrTextMesh.text = "";
+          }
+
           StartingInTextMesh.gameObject.SetActive(false);
           //playerInputManager.splitScreen = true;
           //playerInputManager.enabled = false;

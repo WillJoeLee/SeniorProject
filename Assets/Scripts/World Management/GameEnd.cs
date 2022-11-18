@@ -10,11 +10,12 @@ public class GameEnd : MonoBehaviour
     public bool loseGame = false;
     public GameObject winText;
     public GameObject loseText;
+    public GameObject VRTexts;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -26,11 +27,21 @@ public class GameEnd : MonoBehaviour
             {
                 winText.SetActive(true);
                 winGame = false;
+                foreach(Transform T in VRTexts.transform)
+                {
+                  TextMesh vrTextMesh = T.gameObject.GetComponent<TextMesh>();
+                  vrTextMesh.text = "Angels Win!";
+                }
             }
             if (loseGame)
             {
                 loseText.SetActive(true);
                 loseGame = false;
+                foreach(Transform T in VRTexts.transform)
+                {
+                  TextMesh vrTextMesh = T.gameObject.GetComponent<TextMesh>();
+                  vrTextMesh.text = "Exile Wins!";
+                }
             }
             StartCoroutine(WaitALilBit());
         }
