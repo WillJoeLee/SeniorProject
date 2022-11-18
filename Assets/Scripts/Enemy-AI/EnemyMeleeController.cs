@@ -57,7 +57,10 @@ public class EnemyMeleeController : MonoBehaviour
             //collision.gameObject.GetComponent<Animator>().SetTrigger("IsHurt");
             Instantiate(HitParticles, new Vector3(x, y, z), rotation);
 
-            enemy.TakeDamage(5);
+            if (!enemy.isDead)
+            {
+                enemy.TakeDamage(5);
+            }
         }
     }
 }
