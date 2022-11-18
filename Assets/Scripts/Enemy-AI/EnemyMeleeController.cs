@@ -55,11 +55,11 @@ public class EnemyMeleeController : MonoBehaviour
             Quaternion rotation = collision.gameObject.transform.rotation;
 
             //collision.gameObject.GetComponent<Animator>().SetTrigger("IsHurt");
-            Instantiate(HitParticles, new Vector3(x, y, z), rotation);
 
             if (!enemy.isDead)
             {
                 enemy.TakeDamage(5);
+                Instantiate(HitParticles, new Vector3(x, y, z), rotation);
             }
         }
     }
