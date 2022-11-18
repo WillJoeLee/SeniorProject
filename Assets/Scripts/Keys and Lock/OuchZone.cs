@@ -28,10 +28,13 @@ public class OuchZone : MonoBehaviour
             float z = collider.transform.position.z;
 
             Quaternion rotation = collider.transform.rotation;
+
             Instantiate(HitParticles, new Vector3(x, y, z), rotation);
-            enemy.TakeDamage(0.5f);
 
-
+            if (!enemy.isDead)
+            {
+                enemy.TakeDamage(0.5f);
+            }
         }
     }
 }
