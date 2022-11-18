@@ -97,8 +97,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 60.449448
-  m_Center: {x: 1.0771661, y: 0.0000019073486, z: -54.34111}
+  m_Radius: 10
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &6231430640458474463
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9348ab164f4fb32469f626bf243ac172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 1
+  damageRangeStart: 10
+  damageRangeEnd: 40
   HitParticles: {fileID: 308853465061202023, guid: b44394eb0c1e37b4abce891d7c8524d3,
     type: 3}

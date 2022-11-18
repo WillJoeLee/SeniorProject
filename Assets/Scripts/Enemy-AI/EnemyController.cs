@@ -23,22 +23,23 @@ public class EnemyController : MonoBehaviour
     //update is called once per frame
     void Update()
     {
-        Transform nearestPlayerTransform = GameObject.FindWithTag("Player").transform;
+        GameObject nearestPlayerObject = GameObject.FindWithTag("Player");
         foreach(GameObject player in GameObject.FindGameObjectsWithTag("Player"))
         {
-          if(Vector3.Distance(transform.position, player.transform.position)
-          < Vector3.Distance(transform.position, nearestPlayerTransform.position))
+          if(Vector3.Distance(transform.position, player.transform.position) 
+                < Vector3.Distance(transform.position, nearestPlayerObject.transform.position)
+                && player.TryGetComponent<Health>(out Health AngelCheckA) && !AngelCheckA.isDead)
           {
-            nearestPlayerTransform = player.transform;
+            nearestPlayerObject = player;
           }
         }
-        target = nearestPlayerTransform;
+        target = nearestPlayerObject.transform;
 
         float distance = Vector3.Distance(target.position, transform.position);
 
         //System.Console.WriteLine("Distance from player: " + distance);
 
-        if (distance < lookRadius)
+        if (distance < lookRadius && nearestPlayerObject.TryGetComponent<Health>(out Health AngelCheckB) && !AngelCheckB.isDead)
         {
             agent.SetDestination(target.position);
             if (distance < attackRadius)
