@@ -32,7 +32,6 @@ public class GameEnd : MonoBehaviour
           }
         }
 
-
         if (winGame || (loseGame && allDead))
         {
             if (winGame)
@@ -61,7 +60,7 @@ public class GameEnd : MonoBehaviour
 
     IEnumerator WaitALilBit()
     {
-        yield return new WaitForSeconds(15.0f);
+        yield return new WaitForSeconds(5.0f);
         SceneManager.LoadScene("SampleScene");
     }
 }

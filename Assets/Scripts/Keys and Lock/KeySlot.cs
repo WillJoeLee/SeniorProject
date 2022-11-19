@@ -33,6 +33,7 @@ public class KeySlot : MonoBehaviour
     private bool keyPlaced;
 
     public GameObject winInform;
+    private Runes runes;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +42,8 @@ public class KeySlot : MonoBehaviour
         playerCameraTransform = playerCamera.transform;
         playerCameraPosition = playerCameraTransform.position;
         playerCameraVector = playerCameraTransform.forward * -1;
+        player = playerCameraTransform.parent.gameObject;
+        runes = player.GetComponent<Runes>();
 
         slotPosition = transform.position;
 
@@ -54,7 +57,15 @@ public class KeySlot : MonoBehaviour
     {
         if(keyPlaced)
         {
-          return;
+            if (key.name == "Key 1")
+                runes.setRuneEactive();
+            else if (key.name == "Key 2")
+                runes.setRuneHactive();
+            else if (key.name == "Key 3")
+                runes.setRuneRactive();
+            else
+                runes.setRuneXactive();
+            return;
         }
 
         Transform nearestPlayerCameraTransform = GameObject.FindWithTag("MainCamera").transform;
@@ -69,6 +80,7 @@ public class KeySlot : MonoBehaviour
         playerCameraTransform = nearestPlayerCameraTransform;
         playerCamera = playerCameraTransform.gameObject;
         player = playerCameraTransform.parent.gameObject;
+        runes = player.GetComponent<Runes>();
         playerInputActionAsset = player.GetComponent<PlayerInput>().actions;
 
         //float heightAdjust = Mathf.Sin(Time.fixedTime * (float)2) * (float)0.1;

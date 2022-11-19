@@ -12,7 +12,7 @@ public class Health : MonoBehaviour
     public GameObject body;
     public GameObject weaponHolder;
     public GameObject angelicShield;
-    public Runes runes;
+    //public Runes runes;
 
     public float maxHealth = 100f;
     public float currHealth = 100f;
@@ -26,9 +26,11 @@ public class Health : MonoBehaviour
     {
         currHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-        
-        // Set the health bar to be invisible until game start, see Update()
-        healthBar.gameObject.SetActive(false);
+
+        //set the health bar to be invisible until game start, see Update()
+        //healthBar.gameObject.SetActive(false);
+
+        healthBar.SetHealth(currHealth);
     }
 
     public void Heal(float num)
@@ -37,6 +39,7 @@ public class Health : MonoBehaviour
             currHealth = maxHealth;
         else
             currHealth += num;
+        healthBar.SetHealth(currHealth);
     }
 
     public void TakeDamage(float num)
@@ -47,7 +50,6 @@ public class Health : MonoBehaviour
             currHealth -= num;
 
         healthBar.SetHealth(currHealth);
-
     }
 
     private void Respawn1()
@@ -60,7 +62,7 @@ public class Health : MonoBehaviour
         weaponHolder.SetActive(false);
         angelicShield.SetActive(true);
         body.SetActive(false);
-        runes.deactivateAllRunes();
+        //runes.deactivateAllRunes();
         isDead = true;
     }
 
@@ -73,23 +75,31 @@ public class Health : MonoBehaviour
         player.GetComponent<CharacterController>().enabled = true;
         weaponHolder.SetActive(true);
         body.SetActive(true);
-        runes.reactivateAllRunes();
+        //runes.activateAllRunes();
         isDead = false;
     }
 
-    //update is called once per frame
     void Update()
     {
-
-        if (SceneManager.GetActiveScene().buildIndex != IN_MAIN_MENU)
+        if (currHealth == 0)
         {
-            // Set the health bar to be visible game started
-            healthBar.gameObject.SetActive(true);
-
-            if (currHealth == 0)
-            {
-                Respawn1();
-            }
+            Respawn1();
         }
     }
+
+    //update is called once per frame
+    //void Update()
+    //{
+
+    //    if (SceneManager.GetActiveScene().buildIndex != IN_MAIN_MENU)
+    //    {
+    //        // Set the health bar to be visible game started
+    //        healthBar.gameObject.SetActive(true);
+
+    //        if (currHealth == 0)
+    //        {
+    //            Respawn1();
+    //        }
+    //    }
+    //}
 }

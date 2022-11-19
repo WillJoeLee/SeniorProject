@@ -69,6 +69,7 @@ public class PickUpKey : MonoBehaviour
         }
         playerCameraTransform = nearestPlayerCameraTransform;
         player = playerCameraTransform.parent.gameObject;
+        runes = player.GetComponent<Runes>();
         playerInputActionAsset = player.GetComponent<PlayerInput>().actions;
 
         //float heightAdjust = Mathf.Sin(Time.fixedTime * (float)2) * (float)0.1;
@@ -97,10 +98,14 @@ public class PickUpKey : MonoBehaviour
               transform.localEulerAngles = new Vector3(0,180,0);
               transform.localPosition = new Vector3(0,0,(float)(-0.5));
               pickedUp = true;
-              runes.setRuneEactive();
-              runes.setRuneHactive();
-              runes.setRuneRactive();
-              runes.setRuneXactive();
+                    if (gameObject.name == "Key 1")
+                        runes.setRuneEdeactive();
+                    else if (gameObject.name == "Key 2")
+                        runes.setRuneHdeactive();
+                    else if (gameObject.name == "Key 3")
+                        runes.setRuneRdeactive();
+                    else
+                        runes.setRuneXdeactive();
               text.SetActive(false);
             }
           }
