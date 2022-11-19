@@ -12,6 +12,7 @@ public class Health : MonoBehaviour
     public GameObject body;
     public GameObject weaponHolder;
     public GameObject angelicShield;
+    public GameObject QueueManager;
     //public Runes runes;
 
     public float maxHealth = 100f;
@@ -63,6 +64,7 @@ public class Health : MonoBehaviour
         angelicShield.SetActive(true);
         body.SetActive(false);
         //runes.deactivateAllRunes();
+        QueueManager.GetComponent<GameQueues>().setQueueText(4);
         isDead = true;
     }
 
@@ -76,6 +78,7 @@ public class Health : MonoBehaviour
         weaponHolder.SetActive(true);
         body.SetActive(true);
         //runes.activateAllRunes();
+        QueueManager.GetComponent<GameQueues>().setQueueText(5);
         isDead = false;
     }
 

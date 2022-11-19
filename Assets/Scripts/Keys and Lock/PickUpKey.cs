@@ -19,6 +19,7 @@ public class PickUpKey : MonoBehaviour
     private Vector3 playerCameraVector;
     private Vector3 keyPosition;
     private Vector3 lineToKey;
+    public GameObject QueueManager;
     private Runes runes;
 
     private bool pickedUp;
@@ -97,6 +98,7 @@ public class PickUpKey : MonoBehaviour
               transform.SetParent(player.transform);
               transform.localEulerAngles = new Vector3(0,180,0);
               transform.localPosition = new Vector3(0,0,(float)(-0.5));
+              text.SetActive(false);
               pickedUp = true;
                     if (gameObject.name == "Key 1")
                         runes.setRuneEdeactive();
@@ -106,7 +108,7 @@ public class PickUpKey : MonoBehaviour
                         runes.setRuneRdeactive();
                     else
                         runes.setRuneXdeactive();
-              text.SetActive(false);
+              QueueManager.GetComponent<GameQueues>().setQueueText(1);
             }
           }
           else

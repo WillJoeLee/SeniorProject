@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class GameQueues : MonoBehaviour
 {
-    public GameObject QueueTexts;
+    int idx = 0;
+    public Transform QueueTexts;
 
-    // Start is called before the first frame update
-    void Start()
+    public void setQueueText (int index)
     {
-        
+        idx = index;
+        QueueTexts.GetChild(idx).gameObject.SetActive(true);
+        StartCoroutine(WaitALilBit());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator WaitALilBit()
     {
-        
+        yield return new WaitForSeconds(3.0f);
+        QueueTexts.GetChild(idx).gameObject.SetActive(false);
     }
 }
