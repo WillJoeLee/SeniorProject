@@ -11,8 +11,8 @@ public class AngelShieldMechanics : MonoBehaviour
     //collision detection
     public bool IsAttacking = false;
 
-    public PlayerInput playerInput;
     public Health health;
+    public PlayerInput playerInput;
     private InputActionAsset playerInputActionAsset;
 
     void Start()
@@ -39,5 +39,4 @@ public class AngelShieldMechanics : MonoBehaviour
         }
         
     }
-    
 }

@@ -5,8 +5,8 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    Transform target;
-    NavMeshAgent agent;
+    public Transform target;
+    public NavMeshAgent agent;
 
     public float lookRadius = 80f;
     public float attackRadius = 2f;
@@ -64,9 +64,6 @@ public class EnemyController : MonoBehaviour
         {
             GetComponent<Animator>().SetTrigger("TargetLost");
         }
-
-
-
     }
 
     void FaceTarget()
