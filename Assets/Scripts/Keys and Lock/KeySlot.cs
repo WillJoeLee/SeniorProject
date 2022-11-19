@@ -33,6 +33,7 @@ public class KeySlot : MonoBehaviour
     private bool keyPlaced;
 
     public GameObject winInform;
+    public GameObject QueueManager;
     private Runes runes;
 
     // Start is called before the first frame update
@@ -57,14 +58,6 @@ public class KeySlot : MonoBehaviour
     {
         if(keyPlaced)
         {
-            if (key.name == "Key 1")
-                runes.setRuneEactive();
-            else if (key.name == "Key 2")
-                runes.setRuneHactive();
-            else if (key.name == "Key 3")
-                runes.setRuneRactive();
-            else
-                runes.setRuneXactive();
             return;
         }
 
@@ -153,8 +146,16 @@ public class KeySlot : MonoBehaviour
                       break;
                     }
                 }
-
                 keyPlaced = true;
+                        if (key.name == "Key 1")
+                            runes.setRuneEactive();
+                        else if (key.name == "Key 2")
+                            runes.setRuneHactive();
+                        else if (key.name == "Key 3")
+                            runes.setRuneRactive();
+                        else
+                            runes.setRuneXactive();
+                QueueManager.GetComponent<GameQueues>().setQueueText(2);
               }
             }
             else

@@ -41,6 +41,7 @@ public class GameStart : MonoBehaviour
       {
         NumberOfPlayersTextMesh.text = "1 Player";
       }
+
       /*
       int playerIndex = 0;
 
@@ -109,6 +110,7 @@ public class GameStart : MonoBehaviour
           theCube.tag = "StartGame";
           SpawnBox.SetActive(false);
           EnemySpawnPoints.SetActive(true);
+          gameObject.GetComponent<GameQueues>().setQueueText(0);
           started = true;
         }
       }
