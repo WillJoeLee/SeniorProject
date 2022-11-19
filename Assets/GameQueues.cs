@@ -10,6 +10,10 @@ public class GameQueues : MonoBehaviour
     public void setQueueText (int index)
     {
         idx = index;
+        foreach (Transform kid in QueueTexts)
+        {
+            kid.gameObject.SetActive(false);
+        }
         QueueTexts.GetChild(idx).gameObject.SetActive(true);
         StartCoroutine(WaitALilBit());
     }
