@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -73,17 +74,17 @@ public class PlayerMovement : MonoBehaviour
 
 
         GameObject PlayerReadyText = ReadyTexts.transform.GetChild(playerIndex).gameObject;
-        TextMesh PlayerTextMesh = PlayerReadyText.GetComponent<TextMesh>();
+        TMP_Text PlayerTextMeshPro = PlayerReadyText.GetComponent<TMP_Text>();
 
         if(isReady)
         {
           PlayerReadyText.tag = "Ready";
-          PlayerTextMesh.text = "Ready";
+          PlayerTextMeshPro.text = "Ready";
         }
         else
         {
           PlayerReadyText.tag = "NotReady";
-          PlayerTextMesh.text = "Not Ready";
+          PlayerTextMeshPro.text = "Not Ready";
         }
 
 
