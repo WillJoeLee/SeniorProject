@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class GameStart : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class GameStart : MonoBehaviour
     public TextMesh StartingInTextMesh;
     public GameObject theCube;
     public GameObject SpawnBox;
-    public TextMesh NumberOfPlayersTextMesh;
+    public TMP_Text NumberOfPlayersTextMesh;
     public GameObject EnemySpawnPoints;
 
     private bool countingDown;
