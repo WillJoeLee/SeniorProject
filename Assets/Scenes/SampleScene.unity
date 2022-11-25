@@ -2508,6 +2508,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 323093129}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &323542213 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 144230, guid: dc06161b6d97feb419f45f03b62e14b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1295769439}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &323542218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323542213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e8738b5aefb3234f8b7e1f429bf10d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  is_right_hand: 0
 --- !u!1 &327107873 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 243041194690276544, guid: 7e6f6b81fc5cc1e4fb73e10b50ae38d9,
@@ -11369,7 +11388,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 107946, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_RootOrder
@@ -16021,6 +16040,25 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5991142757870545513, guid: 6c226dba47939f24ab40d70ecc1e9c76, type: 3}
+--- !u!1 &1788001447 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 160596, guid: dc06161b6d97feb419f45f03b62e14b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1295769439}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1788001452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788001447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e8738b5aefb3234f8b7e1f429bf10d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  is_right_hand: 1
 --- !u!1 &1794834708 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5499370296441052929, guid: 6c226dba47939f24ab40d70ecc1e9c76,
