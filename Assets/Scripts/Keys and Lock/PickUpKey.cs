@@ -19,7 +19,7 @@ public class PickUpKey : MonoBehaviour
     private Vector3 playerCameraVector;
     private Vector3 keyPosition;
     private Vector3 lineToKey;
-    public GameObject CueManager;
+    public GameObject QueueManager;
     private Runes runes;
 
     private bool pickedUp;
@@ -108,7 +108,7 @@ public class PickUpKey : MonoBehaviour
                         runes.setRuneRdeactive();
                     else
                         runes.setRuneXdeactive();
-              CueManager.GetComponent<GameCues>().setCueText(1);
+              QueueManager.GetComponent<GameQueues>().setQueueText(1);
             }
           }
           else

@@ -5,7 +5,7 @@ using UnityEngine;
 public class OuchZone : MonoBehaviour
 {
     public GameObject HitParticles;
-    public GameObject CueManager;
+    public GameObject QueueManager;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +32,7 @@ public class OuchZone : MonoBehaviour
 
             enemy.TakeDamage(0.5f);
             Instantiate(HitParticles, new Vector3(x, y, z), rotation);
-            CueManager.GetComponent<GameCues>().setCueText(3);
+            QueueManager.GetComponent<GameQueues>().setQueueText(3);
         }
     }
 }
