@@ -5,7 +5,7 @@ using UnityEngine;
 public class OOBZone : MonoBehaviour
 {
     public GameObject HitParticles;
-    public GameObject QueueManager;
+    public GameObject CueManager;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +32,7 @@ public class OOBZone : MonoBehaviour
 
             enemy.TakeDamage(1f);
             Instantiate(HitParticles, new Vector3(x, y, z), rotation);
-            QueueManager.GetComponent<GameQueues>().setQueueText(3);
+            CueManager.GetComponent<GameCues>().setCueText(3);
         }
     }
 }
