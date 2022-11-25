@@ -61,6 +61,6 @@ public class GameEnd : MonoBehaviour
     IEnumerator WaitALilBit()
     {
         yield return new WaitForSeconds(5.0f);
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("MainMenu");
     }
 }
