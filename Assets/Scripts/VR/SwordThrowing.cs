@@ -5,28 +5,46 @@ using Valve.VR;
 
 public class SwordThrowing : MonoBehaviour
 {
-    public bool is_right_hand;
+    public bool isRightHand;
+    public GameObject banishedSword;
+    private Transform indexFingerTransform;
+    public float throwDelay;
 
-    private bool trigger_is_down;
+    private bool triggerIsDown;
+    private bool canThrowSword;
+
+    private float lastThrown;
 
     // Start is called before the first frame update
     void Start()
     {
-      trigger_is_down = false;
+      triggerIsDown = false;
+      canThrowSword = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-      if(is_right_hand)
+      canThrowSword = (Time.realtimeSinceStartup - lastThrown) > throwDelay;
+
+      if(isRightHand)
       {
-        trigger_is_down = SteamVR_Input.GetState("GrabPinch", SteamVR_Input_Sources.RightHand);
+        triggerIsDown = SteamVR_Input.GetState("GrabPinch", SteamVR_Input_Sources.RightHand);
       }
       else
       {
-        trigger_is_down = SteamVR_Input.GetState("GrabPinch", SteamVR_Input_Sources.LeftHand);
+        triggerIsDown = SteamVR_Input.GetState("GrabPinch", SteamVR_Input_Sources.LeftHand);
       }
 
-      Debug.Log(trigger_is_down);
+      if(triggerIsDown && canThrowSword)
+      {
+        Transform spawnSwordTransform = transform;
+        if(transform.childCount > 5)
+        {
+          spawnSwordTransform = transform.GetChild(5).GetChild(0).GetChild(0).GetChild(0).GetChild(2);
+        }
+        GameObject.Instantiate(banishedSword, spawnSwordTransform.position, transform.rotation);
+        lastThrown = Time.realtimeSinceStartup;
+      }
     }
 }

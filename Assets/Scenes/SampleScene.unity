@@ -433,6 +433,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 18502424}
   m_CullTransparentMesh: 1
+--- !u!1001 &38681807
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4672819251261102838, guid: 5786526b7207ede46bd6587b0c7582ac,
+        type: 3}
+      propertyPath: m_Name
+      value: banished sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 5445662244089495628, guid: 5786526b7207ede46bd6587b0c7582ac,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5445662244089495628, guid: 5786526b7207ede46bd6587b0c7582ac,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5445662244089495628, guid: 5786526b7207ede46bd6587b0c7582ac,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.746
+      objectReference: {fileID: 0}
+    - target: {fileID: 5445662244089495628, guid: 5786526b7207ede46bd6587b0c7582ac,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5445662244089495628, guid: 5786526b7207ede46bd6587b0c7582ac,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5445662244089495628, guid: 5786526b7207ede46bd6587b0c7582ac,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5445662244089495628, guid: 5786526b7207ede46bd6587b0c7582ac,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5445662244089495628, guid: 5786526b7207ede46bd6587b0c7582ac,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5445662244089495628, guid: 5786526b7207ede46bd6587b0c7582ac,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5445662244089495628, guid: 5786526b7207ede46bd6587b0c7582ac,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5445662244089495628, guid: 5786526b7207ede46bd6587b0c7582ac,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5786526b7207ede46bd6587b0c7582ac, type: 3}
+--- !u!1 &38681808 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4672819251261102838, guid: 5786526b7207ede46bd6587b0c7582ac,
+    type: 3}
+  m_PrefabInstance: {fileID: 38681807}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &53435089
 GameObject:
   m_ObjectHideFlags: 0
@@ -2526,7 +2601,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e8738b5aefb3234f8b7e1f429bf10d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  is_right_hand: 0
+  isRightHand: 0
+  banishedSword: {fileID: 38681808}
+  throwDelay: 1
 --- !u!1 &327107873 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 243041194690276544, guid: 7e6f6b81fc5cc1e4fb73e10b50ae38d9,
@@ -16058,7 +16135,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e8738b5aefb3234f8b7e1f429bf10d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  is_right_hand: 1
+  isRightHand: 1
+  banishedSword: {fileID: 38681808}
+  throwDelay: 1
 --- !u!1 &1794834708 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5499370296441052929, guid: 6c226dba47939f24ab40d70ecc1e9c76,
