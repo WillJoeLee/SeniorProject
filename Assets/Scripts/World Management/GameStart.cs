@@ -111,7 +111,7 @@ public class GameStart : MonoBehaviour
           theCube.tag = "StartGame";
           SpawnBox.SetActive(false);
           EnemySpawnPoints.SetActive(true);
-          gameObject.GetComponent<GameCues>().setCueText(0);
+          gameObject.GetComponent<GameQueues>().setQueueText(0);
           started = true;
         }
       }
