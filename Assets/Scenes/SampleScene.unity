@@ -1274,7 +1274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 208320793}
   m_Layer: 0
-  m_Name: QueueTexts
+  m_Name: CueTexts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19588,7 +19588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97e8b7bb2b948a347b0b7f225e37751b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CueTexts: {fileID: 0}
+  CueTexts: {fileID: 208320793}
 --- !u!1 &2136373935
 GameObject:
   m_ObjectHideFlags: 0
