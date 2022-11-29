@@ -43,8 +43,12 @@ public class SwordThrowing : MonoBehaviour
         {
           spawnSwordTransform = transform.GetChild(5).GetChild(0).GetChild(0).GetChild(0).GetChild(2);
         }
-        GameObject.Instantiate(banishedSword, spawnSwordTransform.position, transform.rotation);
+        GameObject newSword = GameObject.Instantiate(banishedSword, spawnSwordTransform.position, transform.rotation);
         lastThrown = Time.realtimeSinceStartup;
+
+        Vector3 throwDirection = spawnSwordTransform.right;
+        Vector3 throwTargetPosition = spawnSwordTransform.position + throwDirection * 100;
+        newSword.transform.LookAt(throwTargetPosition);
       }
     }
 }

@@ -395,7 +395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRightHand: 0
-  banishedSword: {fileID: 4672819251261102838, guid: 5786526b7207ede46bd6587b0c7582ac,
+  banishedSword: {fileID: 3661431101933947468, guid: 9d1a712150d2ef24396eba4b332a8df7,
     type: 3}
   throwDelay: 1
 --- !u!1 &378094963
@@ -1036,7 +1036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRightHand: 1
-  banishedSword: {fileID: 4672819251261102838, guid: 5786526b7207ede46bd6587b0c7582ac,
+  banishedSword: {fileID: 3661431101933947468, guid: 9d1a712150d2ef24396eba4b332a8df7,
     type: 3}
   throwDelay: 1
 --- !u!1 &1809326551
