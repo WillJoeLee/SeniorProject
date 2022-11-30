@@ -5021,7 +5021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpawn: {fileID: 479867993}
-  enemyModel: {fileID: 2037197078004754571, guid: b53df8744a6cbc741875a9e9c24e33a4,
+  enemyModel: {fileID: 2037197078004754571, guid: 9a861aa680415124e9c8a0062b40a095,
     type: 3}
   atOnceMax: 30
   overAllMax: 10
@@ -5732,7 +5732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpawn: {fileID: 587259950}
-  enemyModel: {fileID: 2037197078004754571, guid: b53df8744a6cbc741875a9e9c24e33a4,
+  enemyModel: {fileID: 2037197078004754571, guid: 9a861aa680415124e9c8a0062b40a095,
     type: 3}
   atOnceMax: 30
   overAllMax: 10
@@ -8398,7 +8398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpawn: {fileID: 857063420}
-  enemyModel: {fileID: 2037197078004754571, guid: b53df8744a6cbc741875a9e9c24e33a4,
+  enemyModel: {fileID: 2037197078004754571, guid: 9a861aa680415124e9c8a0062b40a095,
     type: 3}
   atOnceMax: 30
   overAllMax: 10
@@ -9789,7 +9789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpawn: {fileID: 1006267635}
-  enemyModel: {fileID: 2037197078004754571, guid: b53df8744a6cbc741875a9e9c24e33a4,
+  enemyModel: {fileID: 2037197078004754571, guid: 9a861aa680415124e9c8a0062b40a095,
     type: 3}
   atOnceMax: 30
   overAllMax: 10
@@ -12310,7 +12310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpawn: {fileID: 1213688925}
-  enemyModel: {fileID: 2037197078004754571, guid: b53df8744a6cbc741875a9e9c24e33a4,
+  enemyModel: {fileID: 2037197078004754571, guid: ef8fba8741f533044895416f8e8768ac,
     type: 3}
   atOnceMax: 30
   overAllMax: 10
@@ -13206,7 +13206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpawn: {fileID: 1346784670}
-  enemyModel: {fileID: 2037197078004754571, guid: b53df8744a6cbc741875a9e9c24e33a4,
+  enemyModel: {fileID: 2037197078004754571, guid: f043e69c689333f448389fd53e3245f2,
     type: 3}
   atOnceMax: 30
   overAllMax: 10
@@ -15198,7 +15198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpawn: {fileID: 1496511670}
-  enemyModel: {fileID: 2037197078004754571, guid: b53df8744a6cbc741875a9e9c24e33a4,
+  enemyModel: {fileID: 2037197078004754571, guid: ef8fba8741f533044895416f8e8768ac,
     type: 3}
   atOnceMax: 30
   overAllMax: 10
@@ -20818,7 +20818,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpawn: {fileID: 2102157937}
-  enemyModel: {fileID: 2037197078004754571, guid: b53df8744a6cbc741875a9e9c24e33a4,
+  enemyModel: {fileID: 2037197078004754571, guid: f043e69c689333f448389fd53e3245f2,
     type: 3}
   atOnceMax: 30
   overAllMax: 10
