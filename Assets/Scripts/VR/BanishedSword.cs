@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BanishedSword : MonoBehaviour
 {
-    public float swordSpeed = (float)1;
-    public float despawnAfterCollide = (float)5;
-    public float despawnNoMatterCollide = (float)30;
+    public float swordSpeed = 1f;
+    public float despawnAfterCollide = 5f;
+    public float despawnNoMatterCollide = 30f;
 
     // Start is called before the first frame update
     void Start()
@@ -24,9 +24,9 @@ public class BanishedSword : MonoBehaviour
     {
       transform.position = transform.position + transform.forward * swordSpeed;
 
-      if(transform.position.y <= (float)0.2)
+      if(transform.position.y <= 0.5f)
       {
-        swordSpeed = (float)0;
+        swordSpeed = 0f;
         transform.GetChild(6).gameObject.SetActive(true);
         GameObject.Destroy(transform.gameObject, despawnAfterCollide);
       }
