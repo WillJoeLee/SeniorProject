@@ -6,12 +6,12 @@ public class BanishedSword : MonoBehaviour
 {
     public float swordSpeed = 1f;
     public float despawnAfterCollide = 5f;
-    public float despawnNoMatterCollide = 30f;
+    //public float despawnNoMatterCollide = 30f;
 
     // Start is called before the first frame update
     void Start()
     {
-      GameObject.Destroy(transform.gameObject, despawnNoMatterCollide);
+      //GameObject.Destroy(transform.gameObject, despawnNoMatterCollide);
     }
 
     // Update is called once per frame
