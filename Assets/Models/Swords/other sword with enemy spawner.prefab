@@ -113,7 +113,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swordSpeed: 0.1
   despawnAfterCollide: 5
-  despawnNoMatterCollide: 30
 --- !u!1 &2725554884380002329
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,5 +160,5 @@ MonoBehaviour:
   enemySpawn: {fileID: 2725554884380002328}
   enemyModel: {fileID: 2037197078004754571, guid: b53df8744a6cbc741875a9e9c24e33a4,
     type: 3}
-  atOnceMax: 30
-  overAllMax: 10
+  atOnceMax: 105
+  overAllMax: 15

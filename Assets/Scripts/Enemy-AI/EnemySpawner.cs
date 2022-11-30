@@ -7,9 +7,9 @@ public class EnemySpawner : MonoBehaviour
     public Transform enemySpawn;
     public GameObject enemyModel;
 
-    public int atOnceMax = 3;
+    public int atOnceMax;
     private int atOnceCurr = 0;
-    public int overAllMax = 9;
+    public int overAllMax;
     private int overAllCurr = 0;
 
     //update is called once per frame

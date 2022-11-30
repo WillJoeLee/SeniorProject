@@ -164,7 +164,8 @@ public class KeySlot : MonoBehaviour
                             {
                                 if (j.TryGetComponent<EnemySpawner>(out EnemySpawner k))
                                 {
-                                    k.atOnceMax += 10;
+                                    k.atOnceMax += 30;
+                                    k.overAllMax += 10;
                                 }
                             }
                         }
