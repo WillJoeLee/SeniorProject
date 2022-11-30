@@ -16,6 +16,7 @@ public class KeySlot : MonoBehaviour
     public int lockMaterialIndex;
 
     public GameObject Quadrants;
+    public Transform EnemySpawners;
 
     private InputActionAsset playerInputActionAsset;
 
@@ -156,6 +157,17 @@ public class KeySlot : MonoBehaviour
                       break;
                     }
                 }
+
+                foreach (Transform i in EnemySpawners)
+                        {
+                            foreach (Transform j in i)
+                            {
+                                if (j.TryGetComponent<EnemySpawner>(out EnemySpawner k))
+                                {
+                                    k.atOnceMax += 10;
+                                }
+                            }
+                        }
 
                 keyPlaced = true;
               }

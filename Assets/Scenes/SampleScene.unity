@@ -6816,6 +6816,7 @@ MonoBehaviour:
   lockMeshRenderer: {fileID: 288091302701321299}
   lockMaterialIndex: 1
   Quadrants: {fileID: 2079973862}
+  EnemySpawners: {fileID: 168006026}
   winInform: {fileID: 2136212192}
   CueManager: {fileID: 2136212192}
 --- !u!1 &686380958
@@ -7518,6 +7519,7 @@ MonoBehaviour:
   lockMeshRenderer: {fileID: 288091302701321299}
   lockMaterialIndex: 2
   Quadrants: {fileID: 2079973862}
+  EnemySpawners: {fileID: 168006026}
   winInform: {fileID: 2136212192}
   CueManager: {fileID: 2136212192}
 --- !u!1 &801377449
@@ -10069,6 +10071,7 @@ MonoBehaviour:
   lockMeshRenderer: {fileID: 288091302701321299}
   lockMaterialIndex: 3
   Quadrants: {fileID: 2079973862}
+  EnemySpawners: {fileID: 168006026}
   winInform: {fileID: 2136212192}
   CueManager: {fileID: 2136212192}
 --- !u!1 &1040861991
@@ -15578,6 +15581,7 @@ MonoBehaviour:
   lockMeshRenderer: {fileID: 288091302701321299}
   lockMaterialIndex: 4
   Quadrants: {fileID: 2079973862}
+  EnemySpawners: {fileID: 168006026}
   winInform: {fileID: 2136212192}
   CueManager: {fileID: 2136212192}
 --- !u!1 &1541457289
