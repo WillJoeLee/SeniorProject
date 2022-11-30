@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -533,7 +533,7 @@ MonoBehaviour:
   Background: {fileID: 397684676}
   game_menu: {fileID: 21300000, guid: 41bbb98757344154c92cb2679360a957, type: 3}
   slide_0: {fileID: 21300000, guid: 396de411e0647d84d995e06caa12eb1b, type: 3}
-  slide_1: {fileID: 21300000, guid: 236cc59ecb3a30344926ec3b148fe134, type: 3}
+  slide_1: {fileID: 21300000, guid: f8a286e92094ef14795267cf2c3ecdc3, type: 3}
   slide_2: {fileID: 21300000, guid: f0b48549d2540e747a14dcafca7c50bb, type: 3}
   slide_3: {fileID: 21300000, guid: 5dd7f1984396dbd49b74e837d559575d, type: 3}
   button1: {fileID: 1017123606}
