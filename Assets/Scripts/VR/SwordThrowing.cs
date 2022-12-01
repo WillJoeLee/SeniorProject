@@ -16,6 +16,7 @@ public class SwordThrowing : MonoBehaviour
     private bool canThrowSword;
 
     private float lastThrown;
+    private bool gameHasStarted;
 
     // Start is called before the first frame update
     void Start()
@@ -23,23 +24,17 @@ public class SwordThrowing : MonoBehaviour
         triggerIsDown = false;
         triggerIsDown2 = false;
         canThrowSword = true;
-
-
+        gameHasStarted = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Fix incorrect index finger location
-        /*
-        if(!isRightHand)
-        {
-          Transform indexFinger = transform.GetChild(5).GetChild(0).GetChild(0).GetChild(0).GetChild(2);
-          //indexFinger.SetLocalPositionAndRotation(new Vector3(indexFinger.localPosition.x, indexFinger.localPosition.y, (float)0.04), indexFinger.localRotation);
-          indexFinger.localPosition = new Vector3(indexFinger.localPosition.x, indexFinger.localPosition.y, (float)0.04);
-        }*/
-
         canThrowSword = (Time.realtimeSinceStartup - lastThrown) > throwDelay;
+        foreach(GameObject cube in GameObject.FindGameObjectsWithTag("StartGame"))
+        {
+          gameHasStarted = true;
+        }
 
         if (isRightHand)
         {
@@ -52,7 +47,7 @@ public class SwordThrowing : MonoBehaviour
             triggerIsDown2 = SteamVR_Input.GetState("GrabGrip", SteamVR_Input_Sources.LeftHand);
         }
 
-        if (triggerIsDown && canThrowSword && isRightHand && triggerIsDown2)
+        if (triggerIsDown && canThrowSword && isRightHand && triggerIsDown2 && gameHasStarted)
         {
             Transform spawnSwordTransform = transform;
             if (transform.childCount > 5)
@@ -67,7 +62,6 @@ public class SwordThrowing : MonoBehaviour
             if (transform.childCount > 5)
             {
                 Transform indexFingerTransform = transform.GetChild(5).GetChild(0).GetChild(0).GetChild(0).GetChild(0);
-                //throwDirection = transform.GetChild(5).GetChild(0).GetChild(0).GetChild(0).GetChild(0).forward;
                 throwDirection = indexFingerTransform.TransformDirection(indexFingerTransform.InverseTransformDirection(indexFingerTransform.forward) + new Vector3((float)0.3, (float) 0.3, (float)6));
             }
 
