@@ -40,7 +40,7 @@ public class MeleeWeapon : MonoBehaviour
 		playerInputActionAsset.actionMaps[0].actions[6].Disable();
 		playerInputActionAsset.actionMaps[0].actions[4].Disable();
 		Sword.GetComponent<Animator>().SetTrigger("Attack");
-		//GetComponent<AudioSource>().PlayOneShot(SwordAttackSound);
+		GetComponent<AudioSource>().PlayOneShot(SwordAttackSound);
 		StartCoroutine(ResetAttackCooldown());
 	}
 
