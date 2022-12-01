@@ -222,10 +222,10 @@ MonoBehaviour:
   bulletSpawn: {fileID: 8003931188241622125}
   bulletModel: {fileID: 5119952071138824918, guid: b8677f87552cea44086ea8b93a8d8a6e,
     type: 3}
-  bulletSpeed: 12.5
+  bulletSpeed: 15
   ShootAttackSound: {fileID: 0}
   playerInput: {fileID: 0}
-  fireDelay: 0.5
+  fireDelay: 0.375
 --- !u!1 &3274053443911380130
 GameObject:
   m_ObjectHideFlags: 0

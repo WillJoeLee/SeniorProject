@@ -128,6 +128,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageRangeStart: 5
-  damageRangeEnd: 20
+  damageRangeEnd: 25
   HitParticles: {fileID: 308853465061202023, guid: b44394eb0c1e37b4abce891d7c8524d3,
     type: 3}
