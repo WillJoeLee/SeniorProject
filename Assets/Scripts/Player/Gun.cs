@@ -31,8 +31,7 @@ public class Gun : MonoBehaviour
             var bullet = Instantiate(bulletModel, bulletSpawn.position, bulletSpawn.rotation);
             Physics.IgnoreCollision(self.GetComponent<Collider>(), bullet.GetComponent<Collider>());
             bullet.GetComponent<Rigidbody>().velocity = bulletSpawn.forward * bulletSpeed;
-            //AudioSource ac = GetComponent<AudioSource>();
-            //ac.PlayOneShot(SwordAttackSound);
+            GetComponent<AudioSource>().PlayOneShot(ShootAttackSound);
         }
     }
 }
