@@ -23,11 +23,22 @@ public class SwordThrowing : MonoBehaviour
         triggerIsDown = false;
         triggerIsDown2 = false;
         canThrowSword = true;
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Fix incorrect index finger location
+        /*
+        if(!isRightHand)
+        {
+          Transform indexFinger = transform.GetChild(5).GetChild(0).GetChild(0).GetChild(0).GetChild(2);
+          //indexFinger.SetLocalPositionAndRotation(new Vector3(indexFinger.localPosition.x, indexFinger.localPosition.y, (float)0.04), indexFinger.localRotation);
+          indexFinger.localPosition = new Vector3(indexFinger.localPosition.x, indexFinger.localPosition.y, (float)0.04);
+        }*/
+
         canThrowSword = (Time.realtimeSinceStartup - lastThrown) > throwDelay;
 
         if (isRightHand)
@@ -41,21 +52,28 @@ public class SwordThrowing : MonoBehaviour
             triggerIsDown2 = SteamVR_Input.GetState("GrabGrip", SteamVR_Input_Sources.LeftHand);
         }
 
-        if (triggerIsDown && canThrowSword)
+        if (triggerIsDown && canThrowSword && isRightHand && triggerIsDown2)
         {
             Transform spawnSwordTransform = transform;
             if (transform.childCount > 5)
             {
-                spawnSwordTransform = transform.GetChild(5).GetChild(0).GetChild(0).GetChild(0).GetChild(2);
+                spawnSwordTransform = transform.GetChild(5).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(1).GetChild(0);
             }
             GameObject newSword = GameObject.Instantiate(banishedSword, spawnSwordTransform.position, transform.rotation);
             lastThrown = Time.realtimeSinceStartup;
 
             Vector3 throwDirection = spawnSwordTransform.right;
+
+            if (transform.childCount > 5)
+            {
+                throwDirection = transform.GetChild(5).GetChild(0).GetChild(0).GetChild(0).GetChild(0).forward;
+            }
+
             Vector3 throwTargetPosition = spawnSwordTransform.position + throwDirection * 100;
             newSword.transform.LookAt(throwTargetPosition);
         }
 
+        /*
         if (triggerIsDown2 && canThrowSword)
         {
             Transform spawnSwordTransform = transform;
@@ -70,5 +88,6 @@ public class SwordThrowing : MonoBehaviour
             Vector3 throwTargetPosition = spawnSwordTransform.position + throwDirection * 100;
             newSword.transform.LookAt(throwTargetPosition);
         }
+        */
     }
 }
