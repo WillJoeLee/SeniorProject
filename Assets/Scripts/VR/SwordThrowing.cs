@@ -66,7 +66,9 @@ public class SwordThrowing : MonoBehaviour
 
             if (transform.childCount > 5)
             {
-                throwDirection = transform.GetChild(5).GetChild(0).GetChild(0).GetChild(0).GetChild(0).forward;
+                Transform indexFingerTransform = transform.GetChild(5).GetChild(0).GetChild(0).GetChild(0).GetChild(0);
+                //throwDirection = transform.GetChild(5).GetChild(0).GetChild(0).GetChild(0).GetChild(0).forward;
+                throwDirection = indexFingerTransform.TransformDirection(indexFingerTransform.InverseTransformDirection(indexFingerTransform.forward) + new Vector3((float)0.3, (float) 0.3, (float)6));
             }
 
             Vector3 throwTargetPosition = spawnSwordTransform.position + throwDirection * 100;
