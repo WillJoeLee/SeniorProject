@@ -32,7 +32,7 @@ public class OOBZone : MonoBehaviour
 
             enemy.TakeDamage(1f);
             Instantiate(HitParticles, new Vector3(x, y, z), rotation);
-            CueManager.GetComponent<GameCues>().setCueText(3);
+            CueManager.GetComponent<GameCues>().setCueText(3, collider.gameObject);
         }
     }
 }

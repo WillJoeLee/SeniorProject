@@ -64,7 +64,7 @@ public class Health : MonoBehaviour
         angelicShield.SetActive(true);
         body.SetActive(false);
         //runes.deactivateAllRunes();
-        CueManager.GetComponent<GameCues>().setCueText(4);
+        CueManager.GetComponent<GameCues>().setCueText(4, gameObject);
         isDead = true;
     }
 
@@ -78,7 +78,7 @@ public class Health : MonoBehaviour
         weaponHolder.SetActive(true);
         body.SetActive(true);
         //runes.activateAllRunes();
-        CueManager.GetComponent<GameCues>().setCueText(5);
+        CueManager.GetComponent<GameCues>().setCueText(5, gameObject);
         isDead = false;
     }
 

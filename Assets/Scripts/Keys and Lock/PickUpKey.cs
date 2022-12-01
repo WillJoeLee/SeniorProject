@@ -108,7 +108,7 @@ public class PickUpKey : MonoBehaviour
                         runes.setRuneRdeactive();
                     else
                         runes.setRuneXdeactive();
-              CueManager.GetComponent<GameCues>().setCueText(1);
+              CueManager.GetComponent<GameCues>().setCueText(1, player);
             }
           }
           else

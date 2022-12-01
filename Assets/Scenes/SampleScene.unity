@@ -1349,8 +1349,10 @@ Transform:
   - {fileID: 512274123}
   - {fileID: 1736442246}
   - {fileID: 1775384070}
+  - {fileID: 815581681}
+  - {fileID: 2029525446}
   m_Father: {fileID: 330585546}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &213139779
 PrefabInstance:
@@ -2967,8 +2969,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1772301852}
-  - {fileID: 815581681}
-  - {fileID: 2029525446}
   - {fileID: 208320793}
   m_Father: {fileID: 1341022865}
   m_RootOrder: 0
@@ -7779,13 +7779,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 815581680}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 22.5}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 22.500002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 330585546}
-  m_RootOrder: 1
+  m_Father: {fileID: 208320793}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!102 &815581682
 TextMesh:
@@ -20350,13 +20350,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2029525445}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 22.5}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 22.500002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 330585546}
-  m_RootOrder: 2
+  m_Father: {fileID: 208320793}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!102 &2029525447
 TextMesh:
@@ -21770,8 +21770,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winGame: 0
   loseGame: 0
-  winText: {fileID: 815581680}
-  loseText: {fileID: 2029525445}
   VRTexts: {fileID: 976150145}
 --- !u!114 &2136212198
 MonoBehaviour:
@@ -21785,7 +21783,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97e8b7bb2b948a347b0b7f225e37751b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CueTexts: {fileID: 208320793}
 --- !u!1 &2136373935
 GameObject:
   m_ObjectHideFlags: 0
