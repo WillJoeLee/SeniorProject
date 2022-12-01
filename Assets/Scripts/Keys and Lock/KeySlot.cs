@@ -129,14 +129,18 @@ public class KeySlot : MonoBehaviour
                   }
                 }
 
-                if (key.name == "Key 1")
-                  runes.setRuneEactive();
-                else if (key.name == "Key 2")
-                  runes.setRuneHactive();
-                else if (key.name == "Key 3")
-                  runes.setRuneRactive();
-                else
-                  runes.setRuneXactive();
+                foreach (GameObject gmr in GameObject.FindGameObjectsWithTag("Player"))
+                    {
+                            runes = gmr.GetComponent<Runes>();
+                            if (key.name == "Key 1")
+                                runes.setRuneEactive();
+                            else if (key.name == "Key 2")
+                                runes.setRuneHactive();
+                            else if (key.name == "Key 3")
+                                runes.setRuneRactive();
+                            else
+                                runes.setRuneXactive();
+                    }
                 CueManager.GetComponent<GameCues>().setCueText(2, player);
 
                 if(allKeysPlaced)
