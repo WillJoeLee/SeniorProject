@@ -100,14 +100,18 @@ public class PickUpKey : MonoBehaviour
               transform.localPosition = new Vector3(0,0,(float)(-0.5));
               text.SetActive(false);
               pickedUp = true;
-                    if (gameObject.name == "Key 1")
-                        runes.setRuneEdeactive();
-                    else if (gameObject.name == "Key 2")
-                        runes.setRuneHdeactive();
-                    else if (gameObject.name == "Key 3")
-                        runes.setRuneRdeactive();
-                    else
-                        runes.setRuneXdeactive();
+                    foreach (GameObject gmr in GameObject.FindGameObjectsWithTag("Player"))
+                    {
+                        runes = gmr.GetComponent<Runes>();
+                        if (gameObject.name == "Key 1")
+                            runes.setRuneEdeactive();
+                        else if (gameObject.name == "Key 2")
+                            runes.setRuneHdeactive();
+                        else if (gameObject.name == "Key 3")
+                            runes.setRuneRdeactive();
+                        else
+                            runes.setRuneXdeactive();
+                    }
               CueManager.GetComponent<GameCues>().setCueText(1, player);
             }
           }
