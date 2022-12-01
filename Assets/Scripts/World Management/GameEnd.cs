@@ -8,8 +8,6 @@ public class GameEnd : MonoBehaviour
 {
     public bool winGame = false;
     public bool loseGame = false;
-    public GameObject winText;
-    public GameObject loseText;
     public GameObject VRTexts;
 
     // Start is called before the first frame update
@@ -36,8 +34,10 @@ public class GameEnd : MonoBehaviour
         {
             if (winGame)
             {
-                winText.SetActive(true);
-                winGame = false;
+                foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
+                {
+                    gameObject.GetComponent<GameCues>().setCueText(6, player);
+                }
                 foreach(Transform T in VRTexts.transform)
                 {
                   TextMesh vrTextMesh = T.gameObject.GetComponent<TextMesh>();
@@ -46,9 +46,11 @@ public class GameEnd : MonoBehaviour
             }
             if (loseGame && allDead)
             {
-                loseText.SetActive(true);
-                loseGame = false;
-                foreach(Transform T in VRTexts.transform)
+                foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
+                {
+                    gameObject.GetComponent<GameCues>().setCueText(7, player);
+                }
+                foreach (Transform T in VRTexts.transform)
                 {
                   TextMesh vrTextMesh = T.gameObject.GetComponent<TextMesh>();
                   vrTextMesh.text = "Exile Wins!";

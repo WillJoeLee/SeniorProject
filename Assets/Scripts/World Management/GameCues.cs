@@ -5,22 +5,24 @@ using UnityEngine;
 public class GameCues : MonoBehaviour
 {
     int idx = 0;
-    public Transform CueTexts;
+    GameObject gmr;
 
-    public void setCueText (int index)
+    public void setCueText (int index, GameObject gamer)
     {
         idx = index;
-        foreach (Transform kid in CueTexts)
+        gmr = gamer;
+        foreach (Transform kid in gmr.transform.GetChild(0).GetChild(1))
         {
             kid.gameObject.SetActive(false);
         }
-        CueTexts.GetChild(idx).gameObject.SetActive(true);
+        gmr.transform.GetChild(0).GetChild(1).GetChild(idx).gameObject.SetActive(true);
+
         StartCoroutine(WaitALilBit());
     }
 
     IEnumerator WaitALilBit()
     {
         yield return new WaitForSeconds(3.0f);
-        CueTexts.GetChild(idx).gameObject.SetActive(false);
+        gmr.transform.GetChild(0).GetChild(1).GetChild(idx).gameObject.SetActive(false);
     }
 }

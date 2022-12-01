@@ -137,7 +137,7 @@ public class KeySlot : MonoBehaviour
                   runes.setRuneRactive();
                 else
                   runes.setRuneXactive();
-                CueManager.GetComponent<GameCues>().setCueText(2);
+                CueManager.GetComponent<GameCues>().setCueText(2, player);
 
                 if(allKeysPlaced)
                 {
