@@ -225,7 +225,7 @@ MonoBehaviour:
   bulletSpeed: 50
   ShootAttackSound: {fileID: 0}
   playerInput: {fileID: 0}
-  fireDelay: 0.125
+  fireDelay: 0.15
 --- !u!1 &3274053443911380130
 GameObject:
   m_ObjectHideFlags: 0
