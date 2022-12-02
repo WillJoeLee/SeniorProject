@@ -6,6 +6,7 @@ public class EnemyHealth : MonoBehaviour
 {
     public float maxHealth = 100f;
     public float currHealth = 100f;
+    private float life = 60f;
 
     public void Heal(float num)
     {
@@ -21,6 +22,11 @@ public class EnemyHealth : MonoBehaviour
             currHealth = 0;
         else
             currHealth -= num;
+    }
+
+    void Awake()
+    {
+        Destroy(gameObject, life);
     }
 
     //update is called once per frame
