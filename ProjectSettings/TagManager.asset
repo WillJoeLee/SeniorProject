@@ -9,6 +9,7 @@ TagManager:
   - NotReady
   - Ready
   - StartGame
+  - VR
   layers:
   - Default
   - TransparentFX

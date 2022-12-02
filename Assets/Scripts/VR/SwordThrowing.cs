@@ -16,6 +16,8 @@ public class SwordThrowing : MonoBehaviour
     private bool canThrowSword;
 
     private float lastThrown;
+    private bool gameHasStarted;
+    private bool tooLow;
 
     // Start is called before the first frame update
     void Start()
@@ -23,12 +25,20 @@ public class SwordThrowing : MonoBehaviour
         triggerIsDown = false;
         triggerIsDown2 = false;
         canThrowSword = true;
+        gameHasStarted = false;
+        tooLow = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         canThrowSword = (Time.realtimeSinceStartup - lastThrown) > throwDelay;
+        tooLow = transform.position.y < (float)25;
+
+        foreach(GameObject cube in GameObject.FindGameObjectsWithTag("StartGame"))
+        {
+          gameHasStarted = true;
+        }
 
         if (isRightHand)
         {
@@ -41,32 +51,46 @@ public class SwordThrowing : MonoBehaviour
             triggerIsDown2 = SteamVR_Input.GetState("GrabGrip", SteamVR_Input_Sources.LeftHand);
         }
 
-        if (triggerIsDown && canThrowSword)
+        if (triggerIsDown && canThrowSword && isRightHand && triggerIsDown2 && gameHasStarted && !tooLow)
         {
             Transform spawnSwordTransform = transform;
             if (transform.childCount > 5)
             {
-                spawnSwordTransform = transform.GetChild(5).GetChild(0).GetChild(0).GetChild(0).GetChild(2);
+                spawnSwordTransform = transform.GetChild(5).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(1).GetChild(0);
             }
             GameObject newSword = GameObject.Instantiate(banishedSword, spawnSwordTransform.position, transform.rotation);
             lastThrown = Time.realtimeSinceStartup;
 
             Vector3 throwDirection = spawnSwordTransform.right;
+
+            if (transform.childCount > 5)
+            {
+                Transform indexFingerTransform = transform.GetChild(5).GetChild(0).GetChild(0).GetChild(0).GetChild(0);
+                throwDirection = indexFingerTransform.TransformDirection(indexFingerTransform.InverseTransformDirection(indexFingerTransform.forward) + new Vector3((float)0.3, (float) 0.3, (float)6));
+            }
+
             Vector3 throwTargetPosition = spawnSwordTransform.position + throwDirection * 100;
             newSword.transform.LookAt(throwTargetPosition);
         }
 
-        if (triggerIsDown2 && canThrowSword)
+        if (triggerIsDown && canThrowSword && !isRightHand && triggerIsDown2 && gameHasStarted && !tooLow)
         {
             Transform spawnSwordTransform = transform;
             if (transform.childCount > 5)
             {
-                spawnSwordTransform = transform.GetChild(5).GetChild(0).GetChild(0).GetChild(0).GetChild(2);
+                spawnSwordTransform = transform.GetChild(5).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(1).GetChild(0);
             }
             GameObject newSword = GameObject.Instantiate(otherEvilSword, spawnSwordTransform.position, transform.rotation);
             lastThrown = Time.realtimeSinceStartup;
 
             Vector3 throwDirection = spawnSwordTransform.right;
+
+            if (transform.childCount > 5)
+            {
+                Transform indexFingerTransform = transform.GetChild(5).GetChild(0).GetChild(0).GetChild(0).GetChild(0);
+                throwDirection = indexFingerTransform.TransformDirection(indexFingerTransform.InverseTransformDirection(indexFingerTransform.forward) + new Vector3((float)0.3, (float) 0.3, (float)6));
+            }
+
             Vector3 throwTargetPosition = spawnSwordTransform.position + throwDirection * 100;
             newSword.transform.LookAt(throwTargetPosition);
         }
