@@ -33,7 +33,7 @@ public class SwordThrowing : MonoBehaviour
     void Update()
     {
         canThrowSword = (Time.realtimeSinceStartup - lastThrown) > throwDelay;
-        tooLow = transform.position.y < (float)25;
+        tooLow = transform.position.y < (float)10;
 
         foreach(GameObject cube in GameObject.FindGameObjectsWithTag("StartGame"))
         {
