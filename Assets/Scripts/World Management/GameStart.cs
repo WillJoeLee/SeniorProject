@@ -126,7 +126,7 @@ public class GameStart : MonoBehaviour
           //playerInputManager.enabled = true;
           theCube.tag = "StartGame";
           SpawnBox.SetActive(false);
-          EnemySpawnPoints.SetActive(true);
+          //EnemySpawnPoints.SetActive(true);
                 foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
                 {
                     gameObject.GetComponent<GameCues>().setCueText(0, player);
