@@ -78,6 +78,12 @@ public class Heart : MonoBehaviour
         }
         playerCameraTransform = nearestPlayerCameraTransform;
         player = playerCameraTransform.parent.gameObject;
+
+        if(!player.GetComponent<Health>().isDead)
+        {
+          return;
+        }
+
         playerInputActionAsset = player.GetComponent<PlayerInput>().actions;
 
         playerCameraPosition = playerCameraTransform.position;

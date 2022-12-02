@@ -74,6 +74,12 @@ public class KeySlot : MonoBehaviour
         playerCameraTransform = nearestPlayerCameraTransform;
         playerCamera = playerCameraTransform.gameObject;
         player = playerCameraTransform.parent.gameObject;
+
+        if(player.GetComponent<Health>().isDead)
+        {
+          return;
+        }
+
         runes = player.GetComponent<Runes>();
         playerInputActionAsset = player.GetComponent<PlayerInput>().actions;
 

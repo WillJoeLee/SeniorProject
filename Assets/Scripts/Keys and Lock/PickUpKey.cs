@@ -70,6 +70,12 @@ public class PickUpKey : MonoBehaviour
         }
         playerCameraTransform = nearestPlayerCameraTransform;
         player = playerCameraTransform.parent.gameObject;
+
+        if(player.GetComponent<Health>().isDead)
+        {
+          return;
+        }
+
         runes = player.GetComponent<Runes>();
         playerInputActionAsset = player.GetComponent<PlayerInput>().actions;
 
