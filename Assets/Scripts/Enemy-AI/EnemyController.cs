@@ -26,12 +26,13 @@ public class EnemyController : MonoBehaviour
         GameObject nearestPlayerObject = GameObject.FindWithTag("Player");
         foreach(GameObject player in GameObject.FindGameObjectsWithTag("Player"))
         {
-          if(Vector3.Distance(transform.position, player.transform.position) 
-                < Vector3.Distance(transform.position, nearestPlayerObject.transform.position)
-                && player.TryGetComponent<Health>(out Health AngelCheckA) && !AngelCheckA.isDead)
-          {
-            nearestPlayerObject = player;
-          }
+            if (((Vector3.Distance(transform.position, player.transform.position) 
+                < Vector3.Distance(transform.position, nearestPlayerObject.transform.position))
+                || nearestPlayerObject.GetComponent<Health>().isDead)
+                && !player.GetComponent<Health>().isDead)
+            {
+                nearestPlayerObject = player;
+            }
         }
         target = nearestPlayerObject.transform;
 
@@ -39,7 +40,7 @@ public class EnemyController : MonoBehaviour
 
         //System.Console.WriteLine("Distance from player: " + distance);
 
-        if (distance < lookRadius && nearestPlayerObject.TryGetComponent<Health>(out Health AngelCheckB) && !AngelCheckB.isDead)
+        if (distance < lookRadius && !nearestPlayerObject.GetComponent<Health>().isDead)
         {
             agent.SetDestination(target.position);
             if (distance < attackRadius)
