@@ -69,21 +69,26 @@ public class SwordThrowing : MonoBehaviour
             newSword.transform.LookAt(throwTargetPosition);
         }
 
-        /*
-        if (triggerIsDown2 && canThrowSword)
+        if (triggerIsDown && canThrowSword && !isRightHand && triggerIsDown2 && gameHasStarted)
         {
             Transform spawnSwordTransform = transform;
             if (transform.childCount > 5)
             {
-                spawnSwordTransform = transform.GetChild(5).GetChild(0).GetChild(0).GetChild(0).GetChild(2);
+                spawnSwordTransform = transform.GetChild(5).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(1).GetChild(0);
             }
             GameObject newSword = GameObject.Instantiate(otherEvilSword, spawnSwordTransform.position, transform.rotation);
             lastThrown = Time.realtimeSinceStartup;
 
             Vector3 throwDirection = spawnSwordTransform.right;
+
+            if (transform.childCount > 5)
+            {
+                Transform indexFingerTransform = transform.GetChild(5).GetChild(0).GetChild(0).GetChild(0).GetChild(0);
+                throwDirection = indexFingerTransform.TransformDirection(indexFingerTransform.InverseTransformDirection(indexFingerTransform.forward) + new Vector3((float)0.3, (float) 0.3, (float)6));
+            }
+
             Vector3 throwTargetPosition = spawnSwordTransform.position + throwDirection * 100;
             newSword.transform.LookAt(throwTargetPosition);
         }
-        */
     }
 }
