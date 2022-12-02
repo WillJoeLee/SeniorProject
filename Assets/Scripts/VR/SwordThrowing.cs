@@ -17,6 +17,7 @@ public class SwordThrowing : MonoBehaviour
 
     private float lastThrown;
     private bool gameHasStarted;
+    private bool tooLow;
 
     // Start is called before the first frame update
     void Start()
@@ -25,12 +26,15 @@ public class SwordThrowing : MonoBehaviour
         triggerIsDown2 = false;
         canThrowSword = true;
         gameHasStarted = false;
+        tooLow = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         canThrowSword = (Time.realtimeSinceStartup - lastThrown) > throwDelay;
+        tooLow = transform.position.y < (float)25;
+
         foreach(GameObject cube in GameObject.FindGameObjectsWithTag("StartGame"))
         {
           gameHasStarted = true;
@@ -47,7 +51,7 @@ public class SwordThrowing : MonoBehaviour
             triggerIsDown2 = SteamVR_Input.GetState("GrabGrip", SteamVR_Input_Sources.LeftHand);
         }
 
-        if (triggerIsDown && canThrowSword && isRightHand && triggerIsDown2 && gameHasStarted)
+        if (triggerIsDown && canThrowSword && isRightHand && triggerIsDown2 && gameHasStarted && !tooLow)
         {
             Transform spawnSwordTransform = transform;
             if (transform.childCount > 5)
@@ -69,7 +73,7 @@ public class SwordThrowing : MonoBehaviour
             newSword.transform.LookAt(throwTargetPosition);
         }
 
-        if (triggerIsDown && canThrowSword && !isRightHand && triggerIsDown2 && gameHasStarted)
+        if (triggerIsDown && canThrowSword && !isRightHand && triggerIsDown2 && gameHasStarted && !tooLow)
         {
             Transform spawnSwordTransform = transform;
             if (transform.childCount > 5)

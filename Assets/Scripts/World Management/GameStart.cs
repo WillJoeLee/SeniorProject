@@ -47,7 +47,7 @@ public class GameStart : MonoBehaviour
       {
         if(VR_Player.transform.childCount > 6)
         {
-          VR_Player.transform.localScale = new Vector3((float)100, (float)100, (float)100);
+          VR_Player.transform.localScale = new Vector3((float)80, (float)80, (float)80);
           foreach(Transform collisionTransform in VR_Player.transform.GetChild(6))
           {
             collisionTransform.gameObject.SetActive(false);
