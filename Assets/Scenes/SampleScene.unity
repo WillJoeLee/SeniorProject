@@ -10921,6 +10921,10 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 19891332, guid: 2bdc186a2c521f1488fe14cb4a745323, type: 3}
+      propertyPath: LightsModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19891332, guid: 2bdc186a2c521f1488fe14cb4a745323, type: 3}
       propertyPath: SizeModule.y.minMaxState
       value: 2
       objectReference: {fileID: 0}
@@ -10941,12 +10945,16 @@ PrefabInstance:
       value: 0.79607844
       objectReference: {fileID: 0}
     - target: {fileID: 19891332, guid: 2bdc186a2c521f1488fe14cb4a745323, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.8679245
+      objectReference: {fileID: 0}
+    - target: {fileID: 19891332, guid: 2bdc186a2c521f1488fe14cb4a745323, type: 3}
       propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.3686275
+      value: 0.15065858
       objectReference: {fileID: 0}
     - target: {fileID: 19891332, guid: 2bdc186a2c521f1488fe14cb4a745323, type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
-      value: 0.7053822
+      value: 0.6179681
       objectReference: {fileID: 0}
     - target: {fileID: 19891332, guid: 2bdc186a2c521f1488fe14cb4a745323, type: 3}
       propertyPath: InitialModule.startColor.minColor.a
@@ -10954,15 +10962,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19891332, guid: 2bdc186a2c521f1488fe14cb4a745323, type: 3}
       propertyPath: InitialModule.startColor.minColor.b
-      value: 0.9647059
+      value: 0.8301887
       objectReference: {fileID: 0}
     - target: {fileID: 19891332, guid: 2bdc186a2c521f1488fe14cb4a745323, type: 3}
       propertyPath: InitialModule.startColor.minColor.g
-      value: 0.8352941
+      value: 0.2145959
       objectReference: {fileID: 0}
     - target: {fileID: 19891332, guid: 2bdc186a2c521f1488fe14cb4a745323, type: 3}
       propertyPath: InitialModule.startColor.minColor.r
-      value: 0.92033327
+      value: 0.624991
       objectReference: {fileID: 0}
     - target: {fileID: 19891332, guid: 2bdc186a2c521f1488fe14cb4a745323, type: 3}
       propertyPath: InitialModule.startSizeY.minMaxState
@@ -21294,7 +21302,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079973862}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -41.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

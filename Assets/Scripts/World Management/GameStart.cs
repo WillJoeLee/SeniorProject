@@ -43,6 +43,22 @@ public class GameStart : MonoBehaviour
         NumberOfPlayersTextMesh.text = "1 Player";
       }
 
+      foreach(GameObject VR_Player in GameObject.FindGameObjectsWithTag("VR"))
+      {
+        if(VR_Player.transform.childCount > 6)
+        {
+          VR_Player.transform.localScale = new Vector3((float)100, (float)100, (float)100);
+          foreach(Transform collisionTransform in VR_Player.transform.GetChild(6))
+          {
+            collisionTransform.gameObject.SetActive(false);
+          }
+          foreach(Transform collisionTransform in VR_Player.transform.GetChild(7))
+          {
+            collisionTransform.gameObject.SetActive(false);
+          }
+        }
+      }
+
       /*
       int playerIndex = 0;
 
