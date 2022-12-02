@@ -41,7 +41,7 @@ public class Heart : MonoBehaviour
 
         if(!DebugMode)
         {
-          int random_spawn_index = Random.Range(0,3);
+          int random_spawn_index = Random.Range(0,heartSpawns.transform.childCount);
           transform.position = heartSpawns.transform.GetChild(random_spawn_index).position;
         }
 

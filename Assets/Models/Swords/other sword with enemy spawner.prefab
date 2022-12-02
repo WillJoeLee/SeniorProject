@@ -161,7 +161,7 @@ MonoBehaviour:
   enemySpawn: {fileID: 2725554884380002328}
   enemyModel: {fileID: 2037197078004754571, guid: b53df8744a6cbc741875a9e9c24e33a4,
     type: 3}
-  atOnceMax: 40
+  atOnceMax: 60
   overAllMax: 10
 --- !u!1001 &2730940677574068117
 PrefabInstance:

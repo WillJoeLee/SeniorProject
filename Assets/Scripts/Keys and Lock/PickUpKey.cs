@@ -44,7 +44,7 @@ public class PickUpKey : MonoBehaviour
 
         if(!DebugMode)
         {
-          int random_spawn_index = Random.Range(0,3);
+          int random_spawn_index = Random.Range(0,KeySpawns.transform.childCount);
           transform.position = KeySpawns.transform.GetChild(random_spawn_index).position;
         }
 
