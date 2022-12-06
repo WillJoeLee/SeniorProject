@@ -15,14 +15,16 @@ or PlayStation controllers) to be connected to the PC.
 - Delete the Assets, Packages, and ProjectSettings folders
 - Open git in the project folder and type these commands:
 > git init
+>
 > git remote add SeniorProject https://github.com/WillJoeLee/SeniorProject.git
+>
 > git pull SeniorProject
 
 If running the game without VR:
-git checkout Game_without_VR
+> git checkout Game_without_VR
 
 If running the game with VR:
-git checkout Game_with_VR
+> git checkout Game_with_VR
 
 You should now be able to launch the game via the Unity project.
 
