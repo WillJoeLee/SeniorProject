@@ -1,4 +1,7 @@
 # SeniorProject
+The links to the zipped executables can be found here:
+- VR version: https://drive.google.com/file/d/1yUQwLeE2kOcvvz1kyujpqQOnMB_4smUM/view?usp=share_link
+- Non-VR version: https://drive.google.com/file/d/1ktkYajXuiAE6i61bP715Bj9AGiZnsn0r/view?usp=share_link
 
 ### Important info
 If you want to test the VR-supported version of the game, you must have SteamVR
