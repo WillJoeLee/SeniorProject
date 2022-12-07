@@ -33,8 +33,11 @@ You should now be able to launch the game via the Unity project.
 
 ## References
 MidJourney was used to generate textures and reference images used for 3D models
-in the game, and the gitignore template was provided by GitHub. Additional
-resources we used can be found below:
+in the game, and the gitignore template was provided by GitHub.
+
+Files provided by SonarCloud were also included when evaluating testing methods.
+
+Additional resources we used can be found below:
 
 ### Assets imported from the Unity Asset Store
 - https://assetstore.unity.com/packages/3d/characters/humanoids/zombie-30232
